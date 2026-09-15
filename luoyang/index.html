@@ -480,16 +480,14 @@
         border: 1px solid #e8d8bd;
       }
 
-      /* ===== 轮播组件专用样式 ===== */
-      /* PC端实景展示单列独占整行，高度提升至420px以充分享受画质与大图细节 */
+      /* ===== 轮播与实景展示专用样式 ===== */
+      /* 景点与美食实景：PC端均单列独占整行，高度统一为420px充分呈现大图细节 */
       .gallery-item.has-carousel,
-      .gallery-item:has(.carousel-container) {
+      .gallery-item.food-item {
         grid-column: 1 / -1;
       }
       .gallery-item.has-carousel .carousel-container,
-      .gallery-item:has(.carousel-container) .carousel-container {
-        height: 420px;
-      }
+      .gallery-item.food-item .carousel-container,
       .carousel-container {
         position: relative;
         width: 100%;
@@ -680,6 +678,7 @@
         }
         .carousel-container,
         .gallery-item.has-carousel .carousel-container,
+        .gallery-item.food-item .carousel-container,
         .gallery-item:has(.carousel-container) .carousel-container {
           height: 220px;
         }
@@ -1281,9 +1280,9 @@
       <hr />
 
       <!-- ===== 景点展示 ===== -->
-      <h2>三、景点展示（实景轮播 + 图标）</h2>
+      <h2>三、景点实景展示</h2>
       <p class="meta">
-        已配备实景照片的景点支持<b>左右滑动/点击切换</b>，点击图片可<b>全屏高清预览</b>；其余景点保持简约图标示意。
+        精选八大景点实景图，支持<b>左右滑动/点击切换</b>，点击图片可<b>全屏高清预览</b>。
       </p>
 
       <div class="gallery-grid">
@@ -1476,143 +1475,215 @@
           </div>
         </div>
 
-        <!-- 白马寺 -->
-        <div class="gallery-item">
-          <div class="g-icon">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+        <!-- 白马寺 (实景展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="baimasi">
+            <div class="carousel-counter">1 / 1</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/白马寺 · 红墙01"
+                  data-fancybox="gallery-baimasi"
+                  data-caption="白马寺 · 红墙 01"
+                >
+                  <img alt="白马寺 · 红墙 01" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
             >
-              <path d="M32 8 v6" />
-              <path d="M22 20 L32 14 L42 20" />
-              <rect x="24" y="20" width="16" height="8" />
-              <path d="M18 34 L32 28 L46 34" />
-              <rect x="22" y="34" width="20" height="8" />
-              <rect x="20" y="42" width="24" height="12" />
-              <path d="M16 54 h32" />
-            </svg>
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag ok">✅ 还不错</span>
             <span class="g-name">白马寺 · 红墙</span>
             <div class="g-desc">
-              中国第一古刹，红墙异域院适合汉服浅拍。D2 分支 B，与博物馆二选一。
+              中国第一古刹，红墙异域院适合汉服浅拍。D2 分支 B，与博物馆二选一。（含 1 张实景）
             </div>
           </div>
         </div>
 
-        <!-- 老君山 -->
-        <div class="gallery-item">
-          <div class="g-icon">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+        <!-- 老君山 (实景展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="laojunshan">
+            <div class="carousel-counter">1 / 1</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/老君山 · 金顶01"
+                  data-fancybox="gallery-laojunshan"
+                  data-caption="老君山 · 金顶 01"
+                >
+                  <img alt="老君山 · 金顶 01" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
             >
-              <path d="M8 52 L24 24 L32 34 L42 16 L56 52 Z" />
-              <path d="M14 42 a4 4 0 0 1 8 0" />
-              <path d="M32 34 L32 52" />
-            </svg>
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">⭐ 很不错</span>
             <span class="g-name">老君山 · 金顶</span>
             <div class="g-desc">
               海拔 2000 余米，金顶道观群、云海、亮灯。D4–D5 扩展日，住景区内 1
-              晚。
+              晚。（含 1 张实景）
             </div>
           </div>
         </div>
 
-        <!-- 明堂天堂 -->
-        <div class="gallery-item">
-          <div class="g-icon">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+        <!-- 明堂天堂 (实景展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="mingtang">
+            <div class="carousel-counter">1 / 1</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/明堂天堂 · 内部01"
+                  data-fancybox="gallery-mingtang"
+                  data-caption="明堂天堂 · 内部 01"
+                >
+                  <img alt="明堂天堂 · 内部 01" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
             >
-              <path d="M22 22 a10 10 0 0 1 20 0" />
-              <path d="M22 22 h20" />
-              <rect x="20" y="22" width="24" height="16" />
-              <path d="M14 38 h36" />
-              <rect x="16" y="38" width="32" height="14" />
-              <path d="M28 52 v-8 h8 v8" />
-            </svg>
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag ok">✅ 还不错</span>
             <span class="g-name">明堂天堂 · 内部</span>
             <div class="g-desc">
-              大殿、穹顶、宫灯，室内不晒不累。D3 汉服主拍日室内拍摄点。
+              大殿、穹顶、宫灯，室内不晒不累。D3 汉服主拍日室内拍摄点。（含 1 张实景）
             </div>
           </div>
         </div>
 
-        <!-- 洛邑古城 -->
-        <div class="gallery-item">
-          <div class="g-icon">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+        <!-- 洛邑古城 (实景展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="luoyigucheng">
+            <div class="carousel-counter">1 / 1</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛邑古城 · 夜景01"
+                  data-fancybox="gallery-luoyigucheng"
+                  data-caption="洛邑古城 · 夜景 01"
+                >
+                  <img alt="洛邑古城 · 夜景 01" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
             >
-              <path d="M12 30 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6" />
-              <rect x="12" y="30" width="40" height="22" />
-              <path d="M26 52 v-10 a6 6 0 0 1 12 0 v10" />
-              <circle cx="20" cy="20" r="4" />
-              <path d="M20 16 v-2 M20 24 v2" />
-              <circle cx="44" cy="20" r="4" />
-              <path d="M44 16 v-2 M44 24 v2" />
-            </svg>
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag ok">✅ 还不错</span>
             <span class="g-name">洛邑古城 · 夜景</span>
             <div class="g-desc">
               文峰塔、灯笼巷、小桥，汉服夜景热门地。D3 方案 B 备选，注意 17
-              点后人挤人。
+              点后人挤人。（含 1 张实景）
             </div>
           </div>
         </div>
 
-        <!-- 九洲池 -->
-        <div class="gallery-item">
-          <div class="g-icon">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+        <!-- 九洲池 (实景展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="jiuzhouchi">
+            <div class="carousel-counter">1 / 1</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/九洲池 · 园林01"
+                  data-fancybox="gallery-jiuzhouchi"
+                  data-caption="九洲池 · 园林 01"
+                >
+                  <img alt="九洲池 · 园林 01" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
             >
-              <path d="M16 26 L32 14 L48 26" />
-              <path d="M20 26 h24" />
-              <path d="M24 26 v14 M32 26 v14 M40 26 v14" />
-              <path d="M10 46 q6 -3 12 0 t12 0 t12 0 t8 0" />
-              <path d="M14 52 q6 -3 12 0 t12 0 t12 0" />
-            </svg>
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag ok">⚠️ 一般 · Plan B</span>
             <span class="g-name">九洲池 · 园林</span>
             <div class="g-desc">
               水面 + 唐建倒影，人比洛邑少。D1/D3 作 Plan B
-              备选，适合低精力黄昏拍摄。
+              备选，适合低精力黄昏拍摄。（含 1 张实景）
             </div>
           </div>
         </div>
@@ -1620,33 +1691,27 @@
 
       <hr />
 
-      <!-- ===== 美食图标展示 ===== -->
-      <h2>四、美食图标展示</h2>
+      <!-- ===== 美食展示 ===== -->
+      <h2>四、美食展示（实景照片）</h2>
       <p class="meta">
-        洛阳汤馆、水席、小吃各有代表，用简笔图标辅助识别，方便点餐时快速定位。
+        洛阳汤馆、水席、特色名吃实景汇总，点击任意图片可全屏高清预览。
       </p>
 
       <div class="gallery-grid">
         <!-- 马杰山牛肉汤 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M26 14 q-2 -4 0 -8 M32 14 q-2 -4 0 -8 M38 14 q-2 -4 0 -8"
-              />
-              <path d="M12 24 h40" />
-              <path
-                d="M14 24 L18 48 a6 6 0 0 0 6 5 h16 a6 6 0 0 0 6 -5 L50 24"
-              />
-              <path d="M26 53 h12" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-majieshan">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/马杰山牛肉汤"
+                  data-fancybox="gallery-food"
+                  data-caption="马杰山牛肉汤"
+                >
+                  <img alt="马杰山牛肉汤" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">✅ 红榜</span>
@@ -1658,25 +1723,19 @@
         </div>
 
         <!-- 管记水席 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M20 30 h24" />
-              <path
-                d="M22 30 L24 46 a4 4 0 0 0 4 4 h8 a4 4 0 0 0 4 -4 L42 30"
-              />
-              <path d="M8 30 h10" />
-              <path d="M9 30 L11 42 a3 3 0 0 0 3 3 h2" />
-              <path d="M46 30 h10" />
-              <path d="M55 30 L53 42 a3 3 0 0 0 -3 3 h-2" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-guanji">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/管记水席 · 小碗水席"
+                  data-fancybox="gallery-food"
+                  data-caption="管记水席 · 小碗水席"
+                >
+                  <img alt="管记水席 · 小碗水席" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">✅ 红榜</span>
@@ -1689,23 +1748,19 @@
         </div>
 
         <!-- 小街天府 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M40 10 L56 22 M44 8 L58 20" />
-              <path d="M10 28 h36" />
-              <path
-                d="M12 28 L16 48 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 28"
-              />
-              <path d="M22 28 q2 -6 6 -4 q2 -6 6 -2" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-xiaojie">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/小街天府 · 小吃集合"
+                  data-fancybox="gallery-food"
+                  data-caption="小街天府 · 小吃集合"
+                >
+                  <img alt="小街天府 · 小吃集合" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">✅ 红榜</span>
@@ -1717,25 +1772,19 @@
         </div>
 
         <!-- 吕记炒鸡 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M10 30 h44" />
-              <path
-                d="M14 30 L20 48 a8 8 0 0 0 8 6 h8 a8 8 0 0 0 8 -6 L50 30"
-              />
-              <path d="M4 36 h6 M54 36 h6" />
-              <path
-                d="M32 22 q-4 -4 0 -8 q4 -4 0 -8 M24 24 q-3 -3 0 -6 M40 24 q3 -3 0 -6"
-              />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-lvji">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/吕记炒鸡"
+                  data-fancybox="gallery-food"
+                  data-caption="吕记炒鸡"
+                >
+                  <img alt="吕记炒鸡" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">✅ 红榜</span>
@@ -1747,24 +1796,19 @@
         </div>
 
         <!-- 妞妞烩面 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M46 8 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0" />
-              <path d="M50 12 L44 28" />
-              <path d="M10 26 h36" />
-              <path
-                d="M12 26 L16 46 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 26"
-              />
-              <path d="M20 26 q3 -4 6 0 q3 -4 6 0" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-niuniu">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/妞妞烩面"
+                  data-fancybox="gallery-food"
+                  data-caption="妞妞烩面"
+                >
+                  <img alt="妞妞烩面" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">✅ 红榜</span>
@@ -1776,26 +1820,19 @@
         </div>
 
         <!-- 羊肉汤 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M24 12 q-2 -3 0 -6 M32 12 q-2 -3 0 -6 M40 12 q-2 -3 0 -6"
-              />
-              <path d="M12 24 h40" />
-              <path
-                d="M14 24 L18 46 a6 6 0 0 0 6 5 h16 a6 6 0 0 0 6 -5 L50 24"
-              />
-              <path d="M26 51 h12" />
-              <path d="M28 16 q-4 -4 -8 -2 M36 16 q4 -4 8 -2" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-yangrou">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛阳羊肉汤 牛肉汤"
+                  data-fancybox="gallery-food"
+                  data-caption="洛阳羊肉汤 / 牛肉汤"
+                >
+                  <img alt="洛阳羊肉汤 / 牛肉汤" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag good">✅ 红榜</span>
@@ -1807,24 +1844,19 @@
         </div>
 
         <!-- 不翻汤 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M48 10 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0" />
-              <path d="M51 13 L46 26" />
-              <path d="M10 28 h34" />
-              <path
-                d="M12 28 L16 48 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 28"
-              />
-              <path d="M18 34 q4 -2 8 0 M30 34 q4 -2 8 0" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-bufan">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛阳不翻汤"
+                  data-fancybox="gallery-food"
+                  data-caption="洛阳不翻汤"
+                >
+                  <img alt="洛阳不翻汤" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag ok">✅ 小吃</span>
@@ -1836,21 +1868,19 @@
         </div>
 
         <!-- 小街锅贴 -->
-        <div class="gallery-item">
-          <div class="g-icon food">
-            <svg
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M8 42 q10 -12 22 0 q-10 6 -22 0 Z" />
-              <path d="M12 40 v-4 M18 38 v-5 M24 38 v-5 M28 40 v-4" />
-              <path d="M34 42 q10 -12 22 0 q-10 6 -22 0 Z" />
-              <path d="M38 40 v-4 M44 38 v-5 M50 38 v-5 M54 40 v-4" />
-            </svg>
+        <div class="gallery-item food-item">
+          <div class="carousel-container" data-gallery="food-guotie">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/小街锅贴"
+                  data-fancybox="gallery-food"
+                  data-caption="小街锅贴"
+                >
+                  <img alt="小街锅贴" loading="lazy" />
+                </a>
+              </div>
+            </div>
           </div>
           <div class="g-caption">
             <span class="gallery-tag ok">✅ 小吃</span>
