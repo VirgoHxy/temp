@@ -1,635 +1,2336 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<title>洛阳 4+1 天 · 三大一小低精力行程（图标版）</title>
-<style>
-  :root{
-    --ink:#1f1d1b; --muted:#767069; --line:#e8e4de; --line-strong:#d9d3ca;
-    --paper:#ffffff; --accent:#9c5a3c; --accent-soft:#f7f1ec;
-    --red-deep:#b3261e; --red-deep-bg:#fdf3f2; --red-light:#c0392b; --red-light-bg:#fbf4f3;
-    --amber:#a15a10; --amber-bg:#fbf6ee; --green-deep:#2f6b4f; --green-bg:#f0f7f3;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{background:#faf9f7;color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;
-    font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;}
-  .page{max-width:900px;margin:32px auto;background:var(--paper);padding:48px 52px;border:1px solid var(--line);border-radius:4px;}
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>洛阳 4+1 天 · 三大一小低精力行程（图标+实景版）</title>
+    <!-- 引入 Fancybox 5 CDN 样式 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
+    <style>
+      :root {
+        --ink: #1f1d1b;
+        --muted: #767069;
+        --line: #e8e4de;
+        --line-strong: #d9d3ca;
+        --paper: #ffffff;
+        --accent: #9c5a3c;
+        --accent-soft: #f7f1ec;
+        --red-deep: #b3261e;
+        --red-deep-bg: #fdf3f2;
+        --red-light: #c0392b;
+        --red-light-bg: #fbf4f3;
+        --amber: #a15a10;
+        --amber-bg: #fbf6ee;
+        --green-deep: #2f6b4f;
+        --green-bg: #f0f7f3;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #faf9f7;
+        color: var(--ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
+          "PingFang SC", sans-serif;
+        font-size: 14px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+      .page {
+        max-width: 900px;
+        margin: 32px auto;
+        background: var(--paper);
+        padding: 48px 52px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+      }
 
-  header{padding-bottom:24px;border-bottom:2px solid var(--ink);margin-bottom:28px;}
-  h1{margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:.3px;color:var(--ink);}
-  .meta{color:var(--muted);font-size:13px;line-height:1.75;}
-  .meta b{color:var(--ink);font-weight:600;}
+      header {
+        padding-bottom: 24px;
+        border-bottom: 2px solid var(--ink);
+        margin-bottom: 28px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: var(--ink);
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.75;
+      }
+      .meta b {
+        color: var(--ink);
+        font-weight: 600;
+      }
 
-  .legend{display:flex;flex-wrap:wrap;gap:8px 24px;padding:14px 0;margin-bottom:8px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted);}
-  .legend span{display:inline-flex;align-items:center;gap:8px;}
-  .swatch{display:inline-block;width:10px;height:10px;border-radius:2px;flex-shrink:0;}
-  .sw-deep{background:var(--red-deep);} .sw-light{background:var(--red-light);}
-  .sw-amber{background:var(--amber);} .sw-accent{background:var(--accent);} .sw-green{background:var(--green-deep);}
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        padding: 14px 0;
+        margin-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .swatch {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+      .sw-deep {
+        background: var(--red-deep);
+      }
+      .sw-light {
+        background: var(--red-light);
+      }
+      .sw-amber {
+        background: var(--amber);
+      }
+      .sw-accent {
+        background: var(--accent);
+      }
+      .sw-green {
+        background: var(--green-deep);
+      }
 
-  h2{margin:40px 0 16px;font-size:18px;font-weight:700;color:var(--ink);padding-bottom:8px;border-bottom:1px solid var(--line-strong);}
-  h3{margin:30px 0 12px;font-size:15.5px;font-weight:700;color:var(--ink);}
-  h4{margin:22px 0 10px;font-size:14px;font-weight:700;color:var(--accent);}
-  p{margin:8px 0;} ul{margin:8px 0 8px 20px;padding:0;} li{margin:5px 0;}
+      h2 {
+        margin: 40px 0 16px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line-strong);
+      }
+      h3 {
+        margin: 30px 0 12px;
+        font-size: 15.5px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      h4 {
+        margin: 22px 0 10px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      p {
+        margin: 8px 0;
+      }
+      ul {
+        margin: 8px 0 8px 20px;
+        padding: 0;
+      }
+      li {
+        margin: 5px 0;
+      }
 
-  .card{background:#fcfbfa;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:14px 18px;margin:14px 0;}
-  .card.plain{border-left-color:var(--line-strong);}
-  .card.red-light{border-left-color:var(--red-light);background:var(--red-light-bg);border-color:#f0d8d6;}
-  .card h4{margin-top:0;color:var(--ink);}
+      .card {
+        background: #fcfbfa;
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--accent);
+        border-radius: 3px;
+        padding: 14px 18px;
+        margin: 14px 0;
+      }
+      .card.plain {
+        border-left-color: var(--line-strong);
+      }
+      .card.red-light {
+        border-left-color: var(--red-light);
+        background: var(--red-light-bg);
+        border-color: #f0d8d6;
+      }
+      .card h4 {
+        margin-top: 0;
+        color: var(--ink);
+      }
 
-  .timeline{border-left:1px solid var(--line-strong);padding-left:22px;margin-left:4px;}
-  .tl{position:relative;display:flex;gap:16px;padding:12px 0;break-inside:avoid;}
-  .tl::before{content:"";position:absolute;left:-27px;top:20px;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid var(--accent);}
-  .tl.warn::before{border-color:var(--red-light);} .tl.deep::before{border-color:var(--red-deep);} .tl.green::before{border-color:var(--green-deep);}
-  .tl .time{flex:0 0 96px;font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.2px;padding-top:1px;}
-  .tl.warn .time{color:var(--red-light);} .tl.deep .time{color:var(--red-deep);} .tl.green .time{color:var(--green-deep);}
-  .tl .body{flex:1;min-width:0;} .tl .body > * + *{margin-top:6px;}
+      .timeline {
+        border-left: 1px solid var(--line-strong);
+        padding-left: 22px;
+        margin-left: 4px;
+      }
+      .tl {
+        position: relative;
+        display: flex;
+        gap: 16px;
+        padding: 12px 0;
+        break-inside: avoid;
+      }
+      .tl::before {
+        content: "";
+        position: absolute;
+        left: -27px;
+        top: 20px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid var(--accent);
+      }
+      .tl.warn::before {
+        border-color: var(--red-light);
+      }
+      .tl.deep::before {
+        border-color: var(--red-deep);
+      }
+      .tl.green::before {
+        border-color: var(--green-deep);
+      }
+      .tl .time {
+        flex: 0 0 96px;
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--accent);
+        letter-spacing: 0.2px;
+        padding-top: 1px;
+      }
+      .tl.warn .time {
+        color: var(--red-light);
+      }
+      .tl.deep .time {
+        color: var(--red-deep);
+      }
+      .tl.green .time {
+        color: var(--green-deep);
+      }
+      .tl .body {
+        flex: 1;
+        min-width: 0;
+      }
+      .tl .body > * + * {
+        margin-top: 6px;
+      }
 
-  .badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:10px;border:1px solid var(--line-strong);background:#fff;color:var(--muted);letter-spacing:.2px;white-space:nowrap;}
-  .badge.deep{color:var(--red-deep);border-color:#ecc9c6;background:var(--red-deep-bg);}
-  .badge.warn{color:var(--red-light);border-color:#ecc9c6;background:var(--red-light-bg);}
-  .badge.amber{color:var(--amber);border-color:#e8d8bd;background:var(--amber-bg);}
-  .badge.green{color:var(--green-deep);border-color:#c3dbcf;background:var(--green-bg);}
+      .badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 1px 8px;
+        border-radius: 10px;
+        border: 1px solid var(--line-strong);
+        background: #fff;
+        color: var(--muted);
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+      }
+      .badge.deep {
+        color: var(--red-deep);
+        border-color: #ecc9c6;
+        background: var(--red-deep-bg);
+      }
+      .badge.warn {
+        color: var(--red-light);
+        border-color: #ecc9c6;
+        background: var(--red-light-bg);
+      }
+      .badge.amber {
+        color: var(--amber);
+        border-color: #e8d8bd;
+        background: var(--amber-bg);
+      }
+      .badge.green {
+        color: var(--green-deep);
+        border-color: #c3dbcf;
+        background: var(--green-bg);
+      }
 
-  .note{display:block;font-size:12.5px;color:var(--muted);padding:5px 10px;border-left:2px solid var(--line-strong);background:#faf9f7;border-radius:0 3px 3px 0;}
-  .note.deep{color:var(--red-deep);background:var(--red-deep-bg);border-left-color:var(--red-deep);}
-  .note.warn{color:var(--red-light);background:var(--red-light-bg);border-left-color:var(--red-light);}
-  .note.amber{color:var(--amber);background:var(--amber-bg);border-left-color:var(--amber);}
-  .note.green{color:var(--green-deep);background:var(--green-bg);border-left-color:var(--green-deep);}
+      .note {
+        display: block;
+        font-size: 12.5px;
+        color: var(--muted);
+        padding: 5px 10px;
+        border-left: 2px solid var(--line-strong);
+        background: #faf9f7;
+        border-radius: 0 3px 3px 0;
+      }
+      .note.deep {
+        color: var(--red-deep);
+        background: var(--red-deep-bg);
+        border-left-color: var(--red-deep);
+      }
+      .note.warn {
+        color: var(--red-light);
+        background: var(--red-light-bg);
+        border-left-color: var(--red-light);
+      }
+      .note.amber {
+        color: var(--amber);
+        background: var(--amber-bg);
+        border-left-color: var(--amber);
+      }
+      .note.green {
+        color: var(--green-deep);
+        background: var(--green-bg);
+        border-left-color: var(--green-deep);
+      }
 
-  .buffer{display:block;font-size:12.5px;color:var(--muted);padding-top:2px;}
-  .buffer::before{content:"⏳ ";}
-  .planb{display:block;font-size:12.5px;color:var(--accent);padding:6px 10px;background:var(--accent-soft);border-radius:3px;border-left:2px solid var(--accent);}
+      .buffer {
+        display: block;
+        font-size: 12.5px;
+        color: var(--muted);
+        padding-top: 2px;
+      }
+      .buffer::before {
+        content: "⏳ ";
+      }
+      .planb {
+        display: block;
+        font-size: 12.5px;
+        color: var(--accent);
+        padding: 6px 10px;
+        background: var(--accent-soft);
+        border-radius: 3px;
+        border-left: 2px solid var(--accent);
+      }
 
-  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12.5px;}
-  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
-  th{background:#faf9f7;font-weight:700;color:var(--ink);font-size:12px;}
-  tbody tr:nth-child(even) td{background:#fdfcfb;}
+      /* 表格响应式容器 */
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 14px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        font-size: 12.5px;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 9px 11px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #faf9f7;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      tbody tr:nth-child(even) td {
+        background: #fdfcfb;
+      }
 
-  .hanfu-day{border:1px solid var(--line-strong);border-top:3px solid var(--red-deep);border-radius:3px;padding:20px 24px;margin:22px 0;background:#fff;}
-  .hanfu-day > h3:first-child{margin-top:0;color:var(--red-deep);}
-  .extend-day{border:1px solid #c3dbcf;border-top:3px solid var(--green-deep);border-radius:3px;padding:20px 24px;margin:22px 0;background:#fff;}
-  .extend-day > h3:first-child{margin-top:0;color:var(--green-deep);}
+      .hanfu-day {
+        border: 1px solid var(--line-strong);
+        border-top: 3px solid var(--red-deep);
+        border-radius: 3px;
+        padding: 20px 24px;
+        margin: 22px 0;
+        background: #fff;
+      }
+      .hanfu-day > h3:first-child {
+        margin-top: 0;
+        color: var(--red-deep);
+      }
+      .extend-day {
+        border: 1px solid #c3dbcf;
+        border-top: 3px solid var(--green-deep);
+        border-radius: 3px;
+        padding: 20px 24px;
+        margin: 22px 0;
+        background: #fff;
+      }
+      .extend-day > h3:first-child {
+        margin-top: 0;
+        color: var(--green-deep);
+      }
 
-  .rank-table td:first-child{width:110px;font-weight:700;text-align:center;vertical-align:middle;}
-  .rank-tag{display:inline-block;padding:3px 10px;border-radius:3px;font-size:12px;letter-spacing:.5px;}
-  .rank-hard{background:#fdf3f2;color:var(--red-deep);border:1px solid #ecc9c6;}
-  .rank-good{background:var(--green-bg);color:var(--green-deep);border:1px solid #c3dbcf;}
-  .rank-ok{background:var(--amber-bg);color:var(--amber);border:1px solid #e8d8bd;}
-  .rank-meh{background:#faf9f7;color:var(--muted);border:1px solid var(--line-strong);}
-  .rank-spot{display:inline-block;margin:3px 6px 3px 0;padding:2px 8px;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:12.5px;}
+      .rank-table td:first-child {
+        width: 110px;
+        font-weight: 700;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .rank-tag {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+      }
+      .rank-hard {
+        background: #fdf3f2;
+        color: var(--red-deep);
+        border: 1px solid #ecc9c6;
+      }
+      .rank-good {
+        background: var(--green-bg);
+        color: var(--green-deep);
+        border: 1px solid #c3dbcf;
+      }
+      .rank-ok {
+        background: var(--amber-bg);
+        color: var(--amber);
+        border: 1px solid #e8d8bd;
+      }
+      .rank-meh {
+        background: #faf9f7;
+        color: var(--muted);
+        border: 1px solid var(--line-strong);
+      }
+      .rank-spot {
+        display: inline-block;
+        margin: 3px 6px 3px 0;
+        padding: 2px 8px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        font-size: 12.5px;
+      }
 
-  /* ===== 图标展示区 ===== */
-  .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:18px 0;}
-  .gallery-item{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;break-inside:avoid;}
-  .g-icon{
-    height:150px;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg,#faf9f7 0%,#f5f0ea 100%);
-    border-bottom:1px solid var(--line);
-    color:var(--accent);
-  }
-  .g-icon svg{width:96px;height:96px;}
-  .g-icon.food{background:linear-gradient(135deg,#fdf8f3 0%,#faf1e8 100%);color:#a15a10;}
-  .gallery-item .g-caption{padding:10px 12px;font-size:12.5px;line-height:1.6;}
-  .gallery-item .g-name{font-weight:700;color:var(--ink);font-size:13.5px;}
-  .gallery-item .g-desc{color:var(--muted);margin-top:2px;}
-  .gallery-tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;margin-right:5px;vertical-align:middle;}
-  .gallery-tag.hard{background:var(--red-deep-bg);color:var(--red-deep);border:1px solid #ecc9c6;}
-  .gallery-tag.good{background:var(--green-bg);color:var(--green-deep);border:1px solid #c3dbcf;}
-  .gallery-tag.ok{background:var(--amber-bg);color:var(--amber);border:1px solid #e8d8bd;}
+      /* ===== 图标与实景图片展示区 ===== */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin: 18px 0;
+      }
+      .gallery-item {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: #fff;
+        break-inside: avoid;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      }
+      .g-icon {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #faf9f7 0%, #f5f0ea 100%);
+        border-bottom: 1px solid var(--line);
+        color: var(--accent);
+      }
+      .g-icon svg {
+        width: 88px;
+        height: 88px;
+      }
+      .g-icon.food {
+        background: linear-gradient(135deg, #fdf8f3 0%, #faf1e8 100%);
+        color: #a15a10;
+      }
+      .gallery-item .g-caption {
+        padding: 12px 14px;
+        font-size: 12.5px;
+        line-height: 1.6;
+        flex: 1;
+      }
+      .gallery-item .g-name {
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 13.5px;
+      }
+      .gallery-item .g-desc {
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .gallery-tag {
+        display: inline-block;
+        font-size: 11px;
+        padding: 1px 7px;
+        border-radius: 10px;
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+      .gallery-tag.hard {
+        background: var(--red-deep-bg);
+        color: var(--red-deep);
+        border: 1px solid #ecc9c6;
+      }
+      .gallery-tag.good {
+        background: var(--green-bg);
+        color: var(--green-deep);
+        border: 1px solid #c3dbcf;
+      }
+      .gallery-tag.ok {
+        background: var(--amber-bg);
+        color: var(--amber);
+        border: 1px solid #e8d8bd;
+      }
 
-  hr{border:none;border-top:1px solid var(--line);margin:32px 0;}
-  footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.8;}
+      /* ===== 轮播组件专用样式 ===== */
+      /* PC端实景展示单列独占整行，高度提升至420px以充分享受画质与大图细节 */
+      .gallery-item.has-carousel,
+      .gallery-item:has(.carousel-container) {
+        grid-column: 1 / -1;
+      }
+      .gallery-item.has-carousel .carousel-container,
+      .gallery-item:has(.carousel-container) .carousel-container {
+        height: 420px;
+      }
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 420px;
+        background: #1c1a18;
+        overflow: hidden;
+        user-select: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .carousel-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.32s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .carousel-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        background: #141210;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* 方案二：同图高斯模糊虚化背景，解决横竖屏留边问题 */
+      .carousel-slide::before {
+        content: "";
+        position: absolute;
+        inset: -25px;
+        background-image: var(--slide-bg);
+        background-size: cover;
+        background-position: center;
+        filter: blur(28px) brightness(0.5) saturate(1.2);
+        transform: scale(1.15);
+        z-index: 0;
+        pointer-events: none;
+      }
+      .carousel-slide a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        cursor: zoom-in;
+      }
+      .carousel-slide img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.45));
+        transition: transform 0.3s ease;
+      }
+      .carousel-slide a:hover img {
+        transform: scale(1.02);
+      }
+      /* 左右翻页按钮 */
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.48);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 1;
+        z-index: 3;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        backdrop-filter: blur(4px);
+        outline: none;
+        padding: 0;
+      }
+      .carousel-arrow:hover {
+        background: rgba(0, 0, 0, 0.85);
+        transform: translateY(-50%) scale(1.08);
+      }
+      .carousel-arrow.prev {
+        left: 8px;
+      }
+      .carousel-arrow.next {
+        right: 8px;
+      }
+      /* 计数角标 */
+      .carousel-counter {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.58);
+        color: #fff;
+        font-size: 11px;
+        padding: 2px 7px;
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
+        z-index: 2;
+        letter-spacing: 0.5px;
+        font-variant-numeric: tabular-nums;
+      }
+      /* 底部圆点指示器 */
+      .carousel-dots {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 6px;
+        z-index: 2;
+        padding: 3px 8px;
+        background: rgba(0, 0, 0, 0.35);
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
+      }
+      .carousel-dots .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          width 0.2s;
+      }
+      .carousel-dots .dot.active {
+        background: #fff;
+        width: 14px;
+        border-radius: 3px;
+      }
 
-  @media print{
-    body{background:#fff;}
-    .page{max-width:none;margin:0;padding:0;border:none;border-radius:0;}
-    h2,h3,h4{break-after:avoid;}
-    .tl,.card,tr,.hanfu-day,.extend-day,.gallery-item{break-inside:avoid;}
-    @page{size:A4;margin:14mm 12mm;}
-  }
-</style>
-</head>
-<body>
-<div class="page">
+      hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 32px 0;
+      }
+      footer {
+        margin-top: 36px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.8;
+      }
 
-  <header>
-    <h1>洛阳 4+1 天 · 三大一小低精力行程</h1>
-    <div class="meta">
-      住应天门附近（D1–D4）｜老君山景区内 1 晚（D5）｜三大一小｜低精力优先｜日常尽量晚 8 点前结束<br>
-      10/1 中午 12:00 龙门站接人 → <b>行李寄存龙门石窟，下午直接逛石窟</b> → 回应天门入住<br>
-      <b>汉服妆造 + 摄影为本次重点，独立 10/3 主拍日；老君山扩展为 D5，可多待一天。</b>
+      /* ===== 移动端响应式适配 (支持手机与平板) ===== */
+      @media (max-width: 768px) {
+        body {
+          background: #fff;
+        }
+        .page {
+          margin: 0;
+          padding: 24px 16px;
+          border: none;
+          border-radius: 0;
+        }
+        header {
+          margin-bottom: 20px;
+          padding-bottom: 16px;
+        }
+        h1 {
+          font-size: 22px;
+        }
+        .meta {
+          font-size: 12.5px;
+        }
+        .legend {
+          gap: 6px 16px;
+          font-size: 11.5px;
+          padding: 10px 0;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .carousel-container,
+        .gallery-item.has-carousel .carousel-container,
+        .gallery-item:has(.carousel-container) .carousel-container {
+          height: 220px;
+        }
+        .carousel-arrow {
+          width: 36px;
+          height: 36px;
+          font-size: 16px;
+        } /* 移动端手势触控友好 */
+        .tl {
+          flex-direction: column;
+          gap: 4px;
+          padding: 10px 0;
+        }
+        .tl::before {
+          top: 14px;
+        }
+        .tl .time {
+          flex: none;
+          font-size: 12px;
+        }
+        .hanfu-day,
+        .extend-day {
+          padding: 16px;
+        }
+        table {
+          min-width: 540px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page {
+          padding: 18px 12px;
+        }
+        h1 {
+          font-size: 20px;
+        }
+        .carousel-container {
+          height: 190px;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+        .page {
+          max-width: none;
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+        }
+        h2,
+        h3,
+        h4 {
+          break-after: avoid;
+        }
+        .tl,
+        .card,
+        tr,
+        .hanfu-day,
+        .extend-day,
+        .gallery-item {
+          break-inside: avoid;
+        }
+        .carousel-arrow,
+        .carousel-dots,
+        .carousel-counter {
+          display: none !important;
+        }
+        @page {
+          size: A4;
+          margin: 14mm 12mm;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header>
+        <h1>洛阳 4+1 天 · 三大一小低精力行程</h1>
+        <div class="meta">
+          住应天门附近（D1–D4）｜老君山景区内 1
+          晚（D5）｜三大一小｜低精力优先｜日常尽量晚 8 点前结束<br />
+          10/1 中午 12:00 龙门站接人 → <b>行李寄存龙门石窟，下午直接逛石窟</b> →
+          回应天门入住<br />
+          <b
+            >汉服妆造 + 摄影为本次重点，独立 10/3 主拍日；老君山扩展为
+            D5，可多待一天。</b
+          >
+        </div>
+      </header>
+
+      <div class="legend">
+        <span
+          ><span class="swatch sw-deep"></span>深红：需预约 / 购票 /
+          汉服重点</span
+        >
+        <span
+          ><span class="swatch sw-light"></span>浅红：晚 8 点风险 /
+          体力警告</span
+        >
+        <span
+          ><span class="swatch sw-amber"></span>琥珀：公交 /
+          直通车等非打车交通</span
+        >
+        <span><span class="swatch sw-accent"></span>陶土：常规推荐</span>
+        <span><span class="swatch sw-green"></span>深绿：老君山扩展日</span>
+      </div>
+
+      <h2>一、交通总原则</h2>
+      <div class="card plain">
+        <ul>
+          <li>
+            <b>龙门站 → 龙门石窟：</b>打车约 10–14 分钟、15
+            元左右。游客中心旁有免费行李寄存（6 小时，押金 20 元）。建议 D1
+            下车后直接去石窟，行李寄存在游客中心，轻装逛完再回应天门。
+          </li>
+          <li>
+            <b>龙门石窟 → 应天门：</b>打车约 25–35 分钟、30–40
+            元；或打车到龙门高铁站换地铁 2 转 1，约 40 分钟。
+          </li>
+          <li>
+            <b>市区老城 / 应天门 / 洛邑 / 明堂：</b>步行 + 短打车最省精力；地铁
+            1 号线应天门站就近。
+          </li>
+          <li>
+            <b>去白马寺：</b>地铁 1 号线到杨湾/启明南路再打车最省心。<span
+              class="badge amber"
+              >公交慢，非首选</span
+            >
+          </li>
+          <li>
+            <b>去老君山：</b>洛阳汽车站精品专线 5:30
+            发车、每小时一班；也可从龙门站乘洛阳—栾川城际快线。自驾/包车约 2–2.5
+            小时。景区内建议住 1 晚。
+          </li>
+        </ul>
+      </div>
+
+      <h2>二、每日时间线</h2>
+
+      <h3>10/1（周四）到达日 · 龙门石窟半天 + 入住</h3>
+      <p class="meta">
+        调整逻辑：龙门站离石窟很近，下车直接去，行李寄存在石窟游客中心，逛完再回应天门，省一趟往返。
+      </p>
+      <div class="timeline">
+        <div class="tl">
+          <div class="time">12:00</div>
+          <div class="body">
+            <b>龙门站接人。</b
+            >打车直奔龙门石窟西北服务区（导航“龙门石窟龙门大道上下车点”），约
+            10–14 分钟、15 元左右。<span class="buffer">缓冲 15 分钟</span>
+          </div>
+        </div>
+        <div class="tl green">
+          <div class="time">12:30–13:00</div>
+          <div class="body">
+            <b>石窟游客中心寄存行李 + 简单午饭。</b
+            ><span class="note green"
+              >游客中心旁有免费自助寄存柜（6 小时，押金 20
+              元），取行李时拍照留存更稳妥。</span
+            ><span class="note"
+              >午饭：景区外羊肉汤 / 牛肉汤 + 烧饼，轻、热、快。</span
+            ><span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl deep">
+          <div class="time">13:00–15:30</div>
+          <div class="body">
+            <b>龙门石窟（半天精品）。</b
+            ><span class="badge deep">需提前预约 / 购票</span
+            ><span class="note"
+              >90 元，8:00–21:00（19:30 停售、20:00
+              停止入场）。低精力按“半天精品”不是全刷。</span
+            ><span class="note"
+              >精简路线：西山石窟 → 宾阳三洞 → 万佛洞 → 卢舍那大佛 → 过漫水桥 →
+              东山礼佛台 → 步行返回游客中心。全程约 2.5 小时。</span
+            ><span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">15:30–16:30</div>
+          <div class="body">
+            <b>取行李，打车回应天门酒店。</b>约 25–35 分钟、30–40 元。<span
+              class="buffer"
+              >缓冲 20 分钟</span
+            >
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">16:30–17:30</div>
+          <div class="body">
+            <b>入住、休息、放行李。</b>低精力核心，不砍。<span class="buffer"
+              >缓冲 15 分钟</span
+            >
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">17:30–19:00</div>
+          <div class="body">
+            <b>应天门 + 明堂天堂外围轻走（汉服踩点）。</b
+            ><span class="note deep"
+              >📸 汉服预备：看店、试妆报价、定 10/3
+              拍摄。问清四件事——朝代造型样例、精修张数、底片全给或挑给、头饰假发配饰是否另收。</span
+            ><span class="buffer">缓冲 15 分钟</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">19:00–20:00</div>
+          <div class="body">
+            <b>晚饭轻。</b
+            >吕记炒鸡（近应天门）酱香微甜、可点小份配饼；或回小街天府吃小吃收尾。20:00
+            回酒店，不排夜市第二摊。<span class="buffer">缓冲 15 分钟</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>10/2（周五）市区人文日 · 轻松</h3>
+      <p class="meta">
+        龙门已提前到 10/1，今天只安排一个市区人文 + 汉服预备，节奏轻松。
+      </p>
+      <div class="timeline">
+        <div class="tl">
+          <div class="time">08:30</div>
+          <div class="body">
+            <b>酒店出发，简单早饭。</b>牛肉汤 + 饼丝（马杰山类，若还开）。<span
+              class="buffer"
+              >缓冲 15 分钟</span
+            >
+          </div>
+        </div>
+        <div class="tl deep">
+          <div class="time">09:30–12:00</div>
+          <div class="body">
+            <b>分支 A · 洛阳博物馆（低精力首选）。</b
+            ><span class="badge deep">需预约</span
+            ><span class="note"
+              >聂泰路，应天门打车约 20 分钟。日场
+              9:00–19:00，节假日可能变，出发前查官方；周一闭馆。</span
+            ><span class="note"
+              >必看：曹魏白玉杯、唐三彩骆驼/马、北魏陶俑、石刻造像。孩子动线：先唐三彩，再石刻，最后文创区。</span
+            ><span class="buffer">缓冲 15 分钟</span>
+          </div>
+        </div>
+        <div class="tl deep">
+          <div class="time">09:30–12:00</div>
+          <div class="body">
+            <b>分支 B · 白马寺（与博物馆二选一，不都去）。</b
+            ><span class="badge deep">建议提前确认预约 / 购票</span
+            ><span class="note"
+              >瀍河白马寺镇，7:40–18:30；应天门地铁 1
+              号线到杨湾再打车最稳，纯打车单程约 30–40 元。</span
+            ><span class="note"
+              >精品动线：山门 → 天王殿 → 大佛殿 → 大雄殿 → 清凉台 →
+              泰国/印度/缅甸院 → 齐云塔外景，2 小时撤。</span
+            ><span class="buffer">缓冲 15 分钟</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">12:00–13:30</div>
+          <div class="body">
+            <b>午饭 + 回酒店午休。</b
+            ><span class="note"
+              >管记水席老店点小碗水席（牡丹燕菜、连汤肉片、焦炸丸子），三大一小按“半席/4
+              菜”试，别点 24 道全席。</span
+            ><span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">15:00–17:00</div>
+          <div class="body">
+            <b>午休后自由活动。</b>可选：<span class="note"
+              >A · 应天门广场 + 明堂天堂外围补拍空镜。</span
+            ><span class="note"
+              >B · 九洲池浅逛（Plan B，一般景点，但人少离得近）。</span
+            ><span class="note">C · 酒店休息，为 10/3 汉服主拍日养精蓄锐。</span
+            ><span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl deep">
+          <div class="time">17:00–19:00</div>
+          <div class="body">
+            <b>汉服确认 + 应天门黄昏轻拍。</b
+            ><span class="badge deep">📸 汉服预备</span
+            ><span class="note"
+              >若 10/1
+              没定好妆造，今天务必确认：跟拍档期、套餐内容、底片/精修张数、头饰是否另收。可做“单妆造
+              + 1 小时应天门黄昏小拍”，19:00 撤。</span
+            ><span class="buffer">缓冲 20 分钟，确保 20:00 前回酒店</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">19:00–20:00</div>
+          <div class="body">
+            <b>晚餐轻收。</b>王素娥麻辣面 / 妞妞烩面（不吃辣提前说）。<span
+              class="buffer"
+              >缓冲 15 分钟</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="hanfu-day">
+        <h3>10/3（周六）📸 汉服主拍日 · 全部围绕出片</h3>
+        <p class="meta">
+          情侣妆造 +
+          摄影重点，孩子可同拍或只陪拍。汉服集中在这一天，不与其他暴走景点硬凑。
+        </p>
+
+        <h4>方案 A · 应天门 + 明堂 + 九洲池（宫廷唐风，最省腿）</h4>
+        <div class="timeline">
+          <div class="tl deep">
+            <div class="time">09:30</div>
+            <div class="body">
+              应天门周边妆造店到店，情侣全妆全发；孩子可选“小唐装/宋制”或只简单发型。<span
+                class="note"
+                >选店范围：应天门南 / 定鼎路 / 民主街 /
+                天心产业园一带，宫廷唐风强。</span
+              ><span class="note deep"
+                >套餐建议：单妆造不摄影（租衣）比“妆造+跟拍”便宜；出片就买“妆造
+                + 1–2 小时跟拍 + 精修 8–15 张 + 全底片”。</span
+              ><span class="note warn"
+                >避免“199 全包夜景 + 精修 5 张 + 底片另买”。</span
+              ><span class="buffer">缓冲 20 分钟</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">10:30–12:00</div>
+            <div class="body">
+              应天门外部 + 台阶中轴拍：晨光、人少，低能耗。<span class="buffer"
+                >缓冲 15 分钟</span
+              >
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">12:00–13:00</div>
+            <div class="body">
+              酒店换衣休息或就近午饭（小街天府 / 轻面）。<span class="buffer"
+                >缓冲 20 分钟</span
+              >
+            </div>
+          </div>
+          <div class="tl deep">
+            <div class="time">13:30–15:00</div>
+            <div class="body">
+              明堂天堂内部拍（买票进）：大殿、穹顶、宫灯，室内不晒不累。<span
+                class="badge deep"
+                >需购票</span
+              ><span class="buffer">缓冲 15 分钟</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">15:30–17:00</div>
+            <div class="body">
+              九洲池黄昏：水面 + 唐建倒影，比洛邑人少。<span class="planb"
+                >Plan B ·
+                九洲池为一般景点备选；若严格避开，可换应天门外围补拍。</span
+              ><span class="buffer">缓冲 15 分钟</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">17:00–19:00</div>
+            <div class="body">
+              可选补拍应天门蓝调（天暗未全黑），19:30 撤，不进夜市人堆。<span
+                class="buffer"
+                >缓冲 20 分钟</span
+              >
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">19:30</div>
+            <div class="body">
+              回酒店卸妆，20:00 前结束。<span class="buffer">缓冲 15 分钟</span>
+            </div>
+          </div>
+        </div>
+
+        <h4>方案 B · 洛邑古城 + 丽景门（氛围强，人多）</h4>
+        <div class="timeline">
+          <div class="tl">
+            <div class="time">14:00</div>
+            <div class="body">
+              洛邑 / 丽景门妆造店做妆。<span class="buffer">缓冲 20 分钟</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">15:30–17:00</div>
+            <div class="body">
+              丽景门城墙外、老街浅拍（不登长城墙）。<span class="planb"
+                >Plan B · 丽景门为一般景点备选。</span
+              ><span class="buffer">缓冲 15 分钟</span>
+            </div>
+          </div>
+          <div class="tl warn">
+            <div class="time">17:00–19:30</div>
+            <div class="body">
+              洛邑文峰塔、灯笼巷、小桥，拍黄昏到亮灯前。<span class="note warn"
+                >国庆 17 点后人多，严格 20 点回，可能超时。</span
+              ><span class="buffer">缓冲 20 分钟；19:30 未拍完即撤</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">跟拍避坑</div>
+            <div class="body">
+              不找门口拉客“40 张底片 + 5 精修
+              199”；先看原图样片；书面确认：无隐形头饰费、假睫毛含否、改妆一次免费否、逾期还衣费。
+            </div>
+          </div>
+        </div>
+
+        <h4>方案 C · 亲子不穿汉服，只情侣拍</h4>
+        <p>
+          孩子上午博物馆 / 酒店泳池 / 应天门广场玩，情侣按 A 或 B
+          拍，不集体硬撑。
+        </p>
+      </div>
+
+      <h3>10/4（周日）退房 → 老君山</h3>
+      <p class="meta">
+        上午从应天门退房，转场老君山。建议住景区内 1 晚，为 D5 留足体力。
+      </p>
+      <div class="timeline">
+        <div class="tl">
+          <div class="time">08:00–09:30</div>
+          <div class="body">
+            <b>按精力三选一，不叠加。</b
+            ><span class="note"
+              >A · 应天门晨拍补镜：8:30 空镜 30–40 分钟，回酒店。</span
+            ><span class="note"
+              >B · 天子驾六博物馆：离应天门近，真车马坑，30–45
+              分钟，孩子看“周代车队”不累。</span
+            ><span class="planb"
+              >Plan B · C 古墓博物馆：免费但稍远（老城机场路），低精力不推荐
+              10/4 上午赶。</span
+            ><span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">09:30–10:30</div>
+          <div class="body">
+            回酒店整理、退房。<span class="buffer">缓冲 15 分钟</span>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="time">10:30–11:30</div>
+          <div class="body">
+            <b>午饭。</b>牛肉汤 + 饼丝（马杰山类，若还开）；或西工小街小街天府 /
+            锅贴。<span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl amber">
+          <div class="time">12:00–14:30</div>
+          <div class="body">
+            <b>前往老君山。</b
+            ><span class="note amber"
+              >🚌 洛阳汽车站精品专线：5:30
+              发车、每小时一班，可在“洛阳汽车站”公众号查询班次并购票。或从龙门站乘洛阳—栾川城际快线。自驾/包车约
+              2–2.5 小时。</span
+            ><span class="buffer">缓冲 30 分钟，国庆路上可能堵</span>
+          </div>
+        </div>
+        <div class="tl green">
+          <div class="time">14:30–16:00</div>
+          <div class="body">
+            <b>抵达老君山，入住景区内民宿。</b
+            ><span class="note green"
+              >推荐：听溪谷生态民宿（云景索道店）；半山溪语民宿（中灵索道店）；里苏民宿（云景索道店）。景区内住宿需购买当日景区门票。</span
+            ><span class="buffer">缓冲 30 分钟，办理入住 + 放行李</span>
+          </div>
+        </div>
+        <div class="tl green">
+          <div class="time">16:00–18:30</div>
+          <div class="body">
+            <b>老君山半日轻游（索道上山，量力而行）。</b
+            ><span class="note green"
+              >索道：一级索道夏秋季 6:30–21:30，但
+              <b>16:00 后上行停驶</b>，务必在 16:00
+              前坐索道上山。建议只坐到中天门，走十里画屏一段，不强行登金顶。</span
+            ><span class="note green"
+              >金顶亮灯：18:30–19:30（季节可能微调），山顶看亮灯后坐索道下山。</span
+            ><span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+        <div class="tl green">
+          <div class="time">18:30–20:00</div>
+          <div class="body">
+            <b>下山 + 民宿晚饭。</b>景区内民宿多带餐厅，可点家常菜。20:00
+            前回房休息。<span class="buffer">缓冲 20 分钟</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="extend-day">
+        <h3>10/5（周一）老君山扩展日 · 深度游 + 返程</h3>
+        <p class="meta">
+          如果精力允许，可多留半天深度游；如果体力不够，上午轻松逛，中午前后返洛阳。若多待一天，可在老君山景区内再住
+          1 晚。
+        </p>
+
+        <h4>方案 A · 半天深度游 + 下午返洛阳</h4>
+        <div class="timeline">
+          <div class="tl green">
+            <div class="time">07:30–08:00</div>
+            <div class="body">
+              民宿早饭，退房寄存行李。<span class="buffer">缓冲 15 分钟</span>
+            </div>
+          </div>
+          <div class="tl green">
+            <div class="time">08:00–12:00</div>
+            <div class="body">
+              <b>老君山核心景观。</b
+              ><span class="note green"
+                >坐一级索道上山 → 中天门 → 十里画屏 → 南天门 →
+                金顶道观群。全程步行约 3–4 小时，三大一小量力而行。</span
+              ><span class="note"
+                >门票 100 元（线上提前购 90
+                元），需在“老君山风景名胜区”微信公众号或携程/美团/抖音提前实名预约购票。</span
+              ><span class="buffer">缓冲 30 分钟</span>
+            </div>
+          </div>
+          <div class="tl green">
+            <div class="time">12:00–13:00</div>
+            <div class="body">
+              民宿取行李，午饭。<span class="buffer">缓冲 20 分钟</span>
+            </div>
+          </div>
+          <div class="tl amber">
+            <div class="time">13:00–15:30</div>
+            <div class="body">
+              <b>返洛阳。</b
+              ><span class="note amber"
+                >🚌 乘老君山→洛阳直通车/城际快线，约 2–2.5
+                小时回到洛阳市区。</span
+              ><span class="buffer">缓冲 30 分钟</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="time">15:30–17:00</div>
+            <div class="body">
+              回到洛阳市区，休整或补买伴手礼。<span class="buffer"
+                >缓冲 20 分钟</span
+              >
+            </div>
+          </div>
+          <div class="tl deep">
+            <div class="time">17:00 之后</div>
+            <div class="body">
+              <b>返武汉高铁。</b
+              ><span class="note deep"
+                >洛阳龙门站 → 武汉，约 3.5 小时。建议买 15:00
+                之后的班次，给返程留足缓冲。</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <h4>方案 B · 多待一天（住老君山第 2 晚）</h4>
+        <div class="timeline">
+          <div class="tl green">
+            <div class="time">10/5 全天</div>
+            <div class="body">
+              <b>老君山深度游。</b>可走追梦谷、寨沟，门票 48
+              小时内有效，三大区域通用。<span class="buffer"
+                >节奏自控，不赶时间</span
+              >
+            </div>
+          </div>
+          <div class="tl green">
+            <div class="time">10/5 晚</div>
+            <div class="body">
+              继续住景区内民宿，看金顶夜景亮灯。<span class="buffer"
+                >20:00 前回房</span
+              >
+            </div>
+          </div>
+          <div class="tl amber">
+            <div class="time">10/6 上午</div>
+            <div class="body">
+              <b>返洛阳 → 高铁回武汉。</b
+              ><span class="note amber"
+                >🚌 老君山→洛阳直通车/城际快线，约 2–2.5 小时。</span
+              ><span class="note deep"
+                >洛阳龙门站 → 武汉，按 13:00 后买票更稳。</span
+              ><span class="buffer">缓冲 30 分钟</span>
+            </div>
+          </div>
+        </div>
+
+        <h4>方案 C · 老君山只安排 1 天（当天往返）</h4>
+        <p>
+          若不想多待，可 10/4 住洛阳、10/5 一早乘 5:30
+          直通车当天往返。但低精力人群不推荐当天往返，索道 16:00
+          上行停驶、回程可能近 20:00，体力消耗大。
+        </p>
+      </div>
+
+      <hr />
+
+      <!-- ===== 景点展示 ===== -->
+      <h2>三、景点展示（实景轮播 + 图标）</h2>
+      <p class="meta">
+        已配备实景照片的景点支持<b>左右滑动/点击切换</b>，点击图片可<b>全屏高清预览</b>；其余景点保持简约图标示意。
+      </p>
+
+      <div class="gallery-grid">
+        <!-- 龙门石窟 (实景轮播展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="longmen">
+            <div class="carousel-counter">1 / 3</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/龙门石窟01"
+                  data-fancybox="gallery-longmen"
+                  data-caption="龙门石窟 01 · 卢舍那大佛"
+                >
+                  <img alt="龙门石窟 01" loading="lazy" />
+                </a>
+              </div>
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/龙门石窟02"
+                  data-fancybox="gallery-longmen"
+                  data-caption="龙门石窟 02 · 远景石窟群"
+                >
+                  <img alt="龙门石窟 02" loading="lazy" />
+                </a>
+              </div>
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/龙门石窟03"
+                  data-fancybox="gallery-longmen"
+                  data-caption="龙门石窟 03 · 奉先寺造像细节"
+                >
+                  <img alt="龙门石窟 03" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
+            >
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag hard">🔥 硬核</span>
+            <span class="g-name">龙门石窟 · 卢舍那大佛</span>
+            <div class="g-desc">
+              西山石窟核心，奉先寺主尊，唐代石刻艺术巅峰。D1
+              下午半天精品路线。（含 3 张实景，支持左右翻页）
+            </div>
+          </div>
+        </div>
+
+        <!-- 应天门 (实景轮播展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="yingtianmen">
+            <div class="carousel-counter">1 / 2</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/应天门城楼01"
+                  data-fancybox="gallery-yingtianmen"
+                  data-caption="应天门城楼 01 · 隋唐洛阳城正门"
+                >
+                  <img alt="应天门城楼 01" loading="lazy" />
+                </a>
+              </div>
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/应天门城楼02"
+                  data-fancybox="gallery-yingtianmen"
+                  data-caption="应天门城楼 02 · 阙楼雄姿"
+                >
+                  <img alt="应天门城楼 02" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
+            >
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 还不错</span>
+            <span class="g-name">应天门 · 城楼</span>
+            <div class="g-desc">
+              隋唐洛阳城正门，灯光秀所在地。D1/D2/D3
+              多次经过，汉服拍摄核心机位。（含 2 张实景）
+            </div>
+          </div>
+        </div>
+
+        <!-- 洛阳博物馆 (实景轮播展示) -->
+        <div class="gallery-item has-carousel">
+          <div class="carousel-container" data-gallery="luoyangbwg">
+            <div class="carousel-counter">1 / 4</div>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛阳博物馆01"
+                  data-fancybox="gallery-luoyangbwg"
+                  data-caption="洛阳博物馆 01 · 馆藏珍宝"
+                >
+                  <img alt="洛阳博物馆 01" loading="lazy" />
+                </a>
+              </div>
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛阳博物馆02"
+                  data-fancybox="gallery-luoyangbwg"
+                  data-caption="洛阳博物馆 02 · 唐三彩精品"
+                >
+                  <img alt="洛阳博物馆 02" loading="lazy" />
+                </a>
+              </div>
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛阳博物馆03"
+                  data-fancybox="gallery-luoyangbwg"
+                  data-caption="洛阳博物馆 03 · 古代陶俑石刻"
+                >
+                  <img alt="洛阳博物馆 03" loading="lazy" />
+                </a>
+              </div>
+              <div class="carousel-slide">
+                <a
+                  data-img-base="img/洛阳博物馆04"
+                  data-fancybox="gallery-luoyangbwg"
+                  data-caption="洛阳博物馆 04 · 展厅精选"
+                >
+                  <img alt="洛阳博物馆 04" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="carousel-arrow prev"
+              aria-label="上一张"
+            >
+              &#10094;
+            </button>
+            <button
+              type="button"
+              class="carousel-arrow next"
+              aria-label="下一张"
+            >
+              &#10095;
+            </button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 还不错</span>
+            <span class="g-name">洛阳博物馆 · 唐三彩</span>
+            <div class="g-desc">
+              曹魏白玉杯、唐三彩骆驼/马、北魏陶俑。D2 分支 A 低精力首选。（含 4
+              张实景）
+            </div>
+          </div>
+        </div>
+
+        <!-- 白马寺 -->
+        <div class="gallery-item">
+          <div class="g-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M32 8 v6" />
+              <path d="M22 20 L32 14 L42 20" />
+              <rect x="24" y="20" width="16" height="8" />
+              <path d="M18 34 L32 28 L46 34" />
+              <rect x="22" y="34" width="20" height="8" />
+              <rect x="20" y="42" width="24" height="12" />
+              <path d="M16 54 h32" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 还不错</span>
+            <span class="g-name">白马寺 · 红墙</span>
+            <div class="g-desc">
+              中国第一古刹，红墙异域院适合汉服浅拍。D2 分支 B，与博物馆二选一。
+            </div>
+          </div>
+        </div>
+
+        <!-- 老君山 -->
+        <div class="gallery-item">
+          <div class="g-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M8 52 L24 24 L32 34 L42 16 L56 52 Z" />
+              <path d="M14 42 a4 4 0 0 1 8 0" />
+              <path d="M32 34 L32 52" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">⭐ 很不错</span>
+            <span class="g-name">老君山 · 金顶</span>
+            <div class="g-desc">
+              海拔 2000 余米，金顶道观群、云海、亮灯。D4–D5 扩展日，住景区内 1
+              晚。
+            </div>
+          </div>
+        </div>
+
+        <!-- 明堂天堂 -->
+        <div class="gallery-item">
+          <div class="g-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 22 a10 10 0 0 1 20 0" />
+              <path d="M22 22 h20" />
+              <rect x="20" y="22" width="24" height="16" />
+              <path d="M14 38 h36" />
+              <rect x="16" y="38" width="32" height="14" />
+              <path d="M28 52 v-8 h8 v8" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 还不错</span>
+            <span class="g-name">明堂天堂 · 内部</span>
+            <div class="g-desc">
+              大殿、穹顶、宫灯，室内不晒不累。D3 汉服主拍日室内拍摄点。
+            </div>
+          </div>
+        </div>
+
+        <!-- 洛邑古城 -->
+        <div class="gallery-item">
+          <div class="g-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 30 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6" />
+              <rect x="12" y="30" width="40" height="22" />
+              <path d="M26 52 v-10 a6 6 0 0 1 12 0 v10" />
+              <circle cx="20" cy="20" r="4" />
+              <path d="M20 16 v-2 M20 24 v2" />
+              <circle cx="44" cy="20" r="4" />
+              <path d="M44 16 v-2 M44 24 v2" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 还不错</span>
+            <span class="g-name">洛邑古城 · 夜景</span>
+            <div class="g-desc">
+              文峰塔、灯笼巷、小桥，汉服夜景热门地。D3 方案 B 备选，注意 17
+              点后人挤人。
+            </div>
+          </div>
+        </div>
+
+        <!-- 九洲池 -->
+        <div class="gallery-item">
+          <div class="g-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 26 L32 14 L48 26" />
+              <path d="M20 26 h24" />
+              <path d="M24 26 v14 M32 26 v14 M40 26 v14" />
+              <path d="M10 46 q6 -3 12 0 t12 0 t12 0 t8 0" />
+              <path d="M14 52 q6 -3 12 0 t12 0 t12 0" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">⚠️ 一般 · Plan B</span>
+            <span class="g-name">九洲池 · 园林</span>
+            <div class="g-desc">
+              水面 + 唐建倒影，人比洛邑少。D1/D3 作 Plan B
+              备选，适合低精力黄昏拍摄。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ===== 美食图标展示 ===== -->
+      <h2>四、美食图标展示</h2>
+      <p class="meta">
+        洛阳汤馆、水席、小吃各有代表，用简笔图标辅助识别，方便点餐时快速定位。
+      </p>
+
+      <div class="gallery-grid">
+        <!-- 马杰山牛肉汤 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M26 14 q-2 -4 0 -8 M32 14 q-2 -4 0 -8 M38 14 q-2 -4 0 -8"
+              />
+              <path d="M12 24 h40" />
+              <path
+                d="M14 24 L18 48 a6 6 0 0 0 6 5 h16 a6 6 0 0 0 6 -5 L50 24"
+              />
+              <path d="M26 53 h12" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">✅ 红榜</span>
+            <span class="g-name">马杰山牛肉汤</span>
+            <div class="g-desc">
+              洛阳牛肉汤头牌，上午汤最全。配饼丝、丸子，三大一小可点小碗拼饼。
+            </div>
+          </div>
+        </div>
+
+        <!-- 管记水席 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 30 h24" />
+              <path
+                d="M22 30 L24 46 a4 4 0 0 0 4 4 h8 a4 4 0 0 0 4 -4 L42 30"
+              />
+              <path d="M8 30 h10" />
+              <path d="M9 30 L11 42 a3 3 0 0 0 3 3 h2" />
+              <path d="M46 30 h10" />
+              <path d="M55 30 L53 42 a3 3 0 0 0 -3 3 h-2" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">✅ 红榜</span>
+            <span class="g-name">管记水席 · 小碗水席</span>
+            <div class="g-desc">
+              牡丹燕菜、连汤肉片、焦炸丸子。三大一小按“半席/4 菜”试，别点 24
+              道全席。
+            </div>
+          </div>
+        </div>
+
+        <!-- 小街天府 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M40 10 L56 22 M44 8 L58 20" />
+              <path d="M10 28 h36" />
+              <path
+                d="M12 28 L16 48 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 28"
+              />
+              <path d="M22 28 q2 -6 6 -4 q2 -6 6 -2" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">✅ 红榜</span>
+            <span class="g-name">小街天府 · 小吃集合</span>
+            <div class="g-desc">
+              担担面、糖醋小土豆、米凉糕。西工小街，三大一小分档点不浪费。
+            </div>
+          </div>
+        </div>
+
+        <!-- 吕记炒鸡 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M10 30 h44" />
+              <path
+                d="M14 30 L20 48 a8 8 0 0 0 8 6 h8 a8 8 0 0 0 8 -6 L50 30"
+              />
+              <path d="M4 36 h6 M54 36 h6" />
+              <path
+                d="M32 22 q-4 -4 0 -8 q4 -4 0 -8 M24 24 q-3 -3 0 -6 M40 24 q3 -3 0 -6"
+              />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">✅ 红榜</span>
+            <span class="g-name">吕记炒鸡</span>
+            <div class="g-desc">
+              酱香微甜、可点小份、配饼。近应天门，D1 晚饭轻量选择，不重辣。
+            </div>
+          </div>
+        </div>
+
+        <!-- 妞妞烩面 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M46 8 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0" />
+              <path d="M50 12 L44 28" />
+              <path d="M10 26 h36" />
+              <path
+                d="M12 26 L16 46 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 26"
+              />
+              <path d="M20 26 q3 -4 6 0 q3 -4 6 0" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">✅ 红榜</span>
+            <span class="g-name">妞妞烩面</span>
+            <div class="g-desc">
+              洛阳清真烩面代表，滋补烩面、牛肉烩面。不吃辣提前说，D2 晚饭备选。
+            </div>
+          </div>
+        </div>
+
+        <!-- 羊肉汤 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M24 12 q-2 -3 0 -6 M32 12 q-2 -3 0 -6 M40 12 q-2 -3 0 -6"
+              />
+              <path d="M12 24 h40" />
+              <path
+                d="M14 24 L18 46 a6 6 0 0 0 6 5 h16 a6 6 0 0 0 6 -5 L50 24"
+              />
+              <path d="M26 51 h12" />
+              <path d="M28 16 q-4 -4 -8 -2 M36 16 q4 -4 8 -2" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag good">✅ 红榜</span>
+            <span class="g-name">洛阳羊肉汤 / 牛肉汤</span>
+            <div class="g-desc">
+              轻、热、快，配烧饼。D1 石窟外午饭首选，不耽误逛石窟时间。
+            </div>
+          </div>
+        </div>
+
+        <!-- 不翻汤 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M48 10 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0" />
+              <path d="M51 13 L46 26" />
+              <path d="M10 28 h34" />
+              <path
+                d="M12 28 L16 48 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 28"
+              />
+              <path d="M18 34 q4 -2 8 0 M30 34 q4 -2 8 0" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 小吃</span>
+            <span class="g-name">洛阳不翻汤</span>
+            <div class="g-desc">
+              酸辣利口、油而不腻，百年历史。一人小碗尝味，部分老店只收现金。
+            </div>
+          </div>
+        </div>
+
+        <!-- 小街锅贴 -->
+        <div class="gallery-item">
+          <div class="g-icon food">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M8 42 q10 -12 22 0 q-10 6 -22 0 Z" />
+              <path d="M12 40 v-4 M18 38 v-5 M24 38 v-5 M28 40 v-4" />
+              <path d="M34 42 q10 -12 22 0 q-10 6 -22 0 Z" />
+              <path d="M38 40 v-4 M44 38 v-5 M50 38 v-5 M54 40 v-4" />
+            </svg>
+          </div>
+          <div class="g-caption">
+            <span class="gallery-tag ok">✅ 小吃</span>
+            <span class="g-name">小街锅贴</span>
+            <div class="g-desc">
+              河南省非物质文化遗产，西工小街代表小吃。锅贴 + 牛肉汤，轻量收尾。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>五、汉服摄影筛选表</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 22%">地点</th>
+              <th>适合风格 / 出片点</th>
+              <th style="width: 30%">低精力提示</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>应天门 / 明堂 / 九洲池</td>
+              <td>唐制大袖、齐胸、圆领袍、宫廷步摇；跟拍价高，出片大气</td>
+              <td>人少时段 8:30–10:30、16:30–19:30</td>
+            </tr>
+            <tr>
+              <td>洛邑古城</td>
+              <td>
+                宋制褙子、明制马面、唐制齐胸皆宜；文峰塔、灯笼、小桥夜景强
+              </td>
+              <td>人最多，17 点后拥挤</td>
+            </tr>
+            <tr>
+              <td>丽景门 <span class="badge">Plan B</span></td>
+              <td>城墙 + 老街，偏市井唐风</td>
+              <td>登城累，低精力只门口</td>
+            </tr>
+            <tr>
+              <td>白马寺</td>
+              <td>汉服可拍红墙异域院</td>
+              <td>10/2 若去只浅拍，不专门穿汉服跑一天</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card red-light">
+        <b>报价红线：</b>问清代数 / 精修张数 / 底片全交 / 头饰假发配饰 /
+        改妆次数 / 还衣时间 / 雨天改期。<br />
+        <span class="note warn"
+          >景区门口“99 全包夜景”先要看近 30 天原片，不只看精修九宫格。</span
+        >
+      </div>
+
+      <h2>六、美食红黑榜</h2>
+      <div class="card plain">
+        <h4>✅ 红榜候选</h4>
+        <ul>
+          <li>
+            <b>汤类：</b
+            >马杰山牛肉汤、匡家驴肉汤、南关小碗牛肉汤（上午更全，可点小碗拼饼）。
+          </li>
+          <li>
+            <b>水席：</b
+            >管记老店、真不同（偏宴请价高）；只点牡丹燕菜、连汤肉片、焦炸丸子、小碗酸奶
+            / 不翻汤，不全席。
+          </li>
+          <li>
+            <b>小吃：</b>小街天府、西工小街锅贴、老李家炒凉粉、高/张记不翻汤。
+          </li>
+          <li>
+            <b>正餐：</b
+            >吕记炒鸡、王嫂私厨（家常分量大）、马坡二旦烧烤（本程不排）、豫和记涮牛肚。
+          </li>
+        </ul>
+      </div>
+      <div class="card red-light">
+        <h4>❌ 避坑原则</h4>
+        <ul>
+          <li>
+            应天门 / 洛邑 /
+            龙门出口“网红套餐”、低价全席、芝士榴莲、重辣不标注、不告知分量的水席。
+          </li>
+          <li>99 元水席套餐多用冷冻食材。</li>
+          <li>洛阳菜分量极大，三大一小点 3–4 个菜足矣。</li>
+          <li>部分老店（如不翻汤）只收现金，备好零钱。</li>
+          <li>洛阳辣椒后劲足，不能吃辣务必提前说明“免辣”。</li>
+        </ul>
+      </div>
+
+      <h2>七、低精力裁剪规则</h2>
+      <ul>
+        <li>
+          <b>老君山：</b>已扩展为 D5，住景区内 1 晚。<span class="badge warn"
+            >晚 8 点风险</span
+          >索道 16:00 上行停驶，务必提前上山；若当天往返，回程可能近 20:00。
+        </li>
+        <li>
+          <b>龙门 + 白马同天 → 剔除，只留其一；</b>本行程龙门已在 10/1，10/2
+          只选博物馆或白马寺之一。
+        </li>
+        <li><b>洛邑夜场 + 应天门夜场同天 → 剔除，</b>只选一个且 20 点前离。</li>
+        <li>
+          <b>孩子若小：</b>汉服只情侣，孩子租小装不跟拍；博物馆只看唐三彩 +
+          石刻两厅。
+        </li>
+      </ul>
+
+      <h2>八、交通方式精细对比（三大一小）</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>场景</th>
+              <th>推荐方式</th>
+              <th>优势</th>
+              <th>劣势</th>
+              <th>预估费用 / 次</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>龙门站–龙门石窟</td>
+              <td>打车</td>
+              <td>约 10–14 分钟，极近</td>
+              <td>国庆可能排队打车</td>
+              <td>约 15 元</td>
+            </tr>
+            <tr>
+              <td>龙门石窟–应天门</td>
+              <td>打车</td>
+              <td>直达，约 25–35 分钟</td>
+              <td>高峰期拥堵</td>
+              <td>约 30–40 元</td>
+            </tr>
+            <tr>
+              <td>应天门–白马寺</td>
+              <td>打车 <span class="badge amber">公交备选</span></td>
+              <td>打车直达省心</td>
+              <td>约 10km；公交慢且不省力</td>
+              <td>打车约 30 元</td>
+            </tr>
+            <tr>
+              <td>市区–老君山</td>
+              <td><span class="badge amber">旅游直通车</span></td>
+              <td>直达，不用操心路线</td>
+              <td>需定点乘车，约 2–2.5 小时</td>
+              <td>约 30–40 元 / 人</td>
+            </tr>
+            <tr>
+              <td>老君山–洛阳龙门站</td>
+              <td><span class="badge amber">直通车 + 打车</span></td>
+              <td>返程方便</td>
+              <td>全程约 2.5–3 小时</td>
+              <td>约 50 元 / 人</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr />
+
+      <h2>九、景点夯到拉排名（参考图整理）</h2>
+      <p class="meta">
+        按“硬核 / 很不错 / 还不错 / 一般”四档，转为“夯 → 拉”排名，方便快速筛选。
+      </p>
+      <div class="table-responsive">
+        <table class="rank-table">
+          <thead>
+            <tr>
+              <th style="width: 110px">排名</th>
+              <th>景点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="rank-tag rank-hard">🔥 夯 / 硬核</span></td>
+              <td><span class="rank-spot">龙门石窟</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-tag rank-good">⭐ 很不错</span></td>
+              <td>
+                <span class="rank-spot">老君山</span
+                ><span class="rank-spot">牡丹节（季节性）</span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="rank-tag rank-ok">✅ 还不错</span></td>
+              <td>
+                <span class="rank-spot">白云山</span
+                ><span class="rank-spot">白马寺</span
+                ><span class="rank-spot">洛邑古城</span
+                ><span class="rank-spot">龙潭大峡谷</span
+                ><span class="rank-spot">天子驾六博物馆</span
+                ><span class="rank-spot">洛阳博物馆</span
+                ><span class="rank-spot">古墓博物馆</span
+                ><span class="rank-spot">明堂天堂</span
+                ><span class="rank-spot">应天门</span
+                ><span class="rank-spot">鸡冠洞</span
+                ><span class="rank-spot">重渡沟</span
+                ><span class="rank-spot">黄河小浪底水利枢纽</span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="rank-tag rank-meh">⚠️ 一般 / 拉</span></td>
+              <td>
+                <span class="rank-spot">大运河博物馆</span
+                ><span class="rank-spot">丽景门</span
+                ><span class="rank-spot">九洲池</span
+                ><span class="rank-spot">王府竹海</span
+                ><span class="rank-spot">养子沟</span
+                ><span class="rank-spot">木札岭</span
+                ><span class="rank-spot">天池山</span
+                ><span class="rank-spot">花果山</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card plain">
+        <h4>使用建议</h4>
+        <ul>
+          <li><b>🔥 硬核：</b>龙门石窟必去，D1 已安排。</li>
+          <li>
+            <b>⭐ 很不错：</b>老君山已扩展为 D5，牡丹节若在花期可额外关注。
+          </li>
+          <li>
+            <b>✅ 还不错：</b>行程中已按低精力 +
+            顺路原则选用白马寺、洛邑古城、洛阳博物馆、明堂天堂、应天门、天子驾六等。
+          </li>
+          <li>
+            <b>⚠️ 一般：</b>丽景门、九洲池仅作 Plan B
+            备选；其余如大运河博物馆、王府竹海、养子沟、木札岭、天池山、花果山，本程不排。
+          </li>
+        </ul>
+      </div>
+
+      <footer>
+        打印建议：浏览器打开后 Ctrl+P → 另存为
+        PDF；A4、边距默认；若想保留浅底色，勾选“背景图形”。<br />
+        浏览说明：本页面全面支持电脑端与移动端触控，景点图片支持左右滑动与全屏手势缩放查看。<br />
+        核心原则：<b
+          >D1 下车直接逛龙门石窟；D3 汉服单独主拍；D4–D5 老君山扩展，住景区内 1
+          晚；一般景点放 Plan B。</b
+        >
+      </footer>
     </div>
-  </header>
 
-  <div class="legend">
-    <span><span class="swatch sw-deep"></span>深红：需预约 / 购票 / 汉服重点</span>
-    <span><span class="swatch sw-light"></span>浅红：晚 8 点风险 / 体力警告</span>
-    <span><span class="swatch sw-amber"></span>琥珀：公交 / 直通车等非打车交通</span>
-    <span><span class="swatch sw-accent"></span>陶土：常规推荐</span>
-    <span><span class="swatch sw-green"></span>深绿：老君山扩展日</span>
-  </div>
+    <!-- 引入 Fancybox 5 CDN 核心脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
-  <h2>一、交通总原则</h2>
-  <div class="card plain">
-    <ul>
-      <li><b>龙门站 → 龙门石窟：</b>打车约 10–14 分钟、15 元左右。游客中心旁有免费行李寄存（6 小时，押金 20 元）。建议 D1 下车后直接去石窟，行李寄存在游客中心，轻装逛完再回应天门。</li>
-      <li><b>龙门石窟 → 应天门：</b>打车约 25–35 分钟、30–40 元；或打车到龙门高铁站换地铁 2 转 1，约 40 分钟。</li>
-      <li><b>市区老城 / 应天门 / 洛邑 / 明堂：</b>步行 + 短打车最省精力；地铁 1 号线应天门站就近。</li>
-      <li><b>去白马寺：</b>地铁 1 号线到杨湾/启明南路再打车最省心。<span class="badge amber">公交慢，非首选</span></li>
-      <li><b>去老君山：</b>洛阳汽车站精品专线 5:30 发车、每小时一班；也可从龙门站乘洛阳—栾川城际快线。自驾/包车约 2–2.5 小时。景区内建议住 1 晚。</li>
-    </ul>
-  </div>
+    <script>
+      // ===== 轮播与手势交互逻辑 =====
+      function initCarousels() {
+        const carousels = document.querySelectorAll(".carousel-container");
+        carousels.forEach((container) => {
+          const track = container.querySelector(".carousel-track");
+          const slides = container.querySelectorAll(".carousel-slide");
+          const prevBtn = container.querySelector(".carousel-arrow.prev");
+          const nextBtn = container.querySelector(".carousel-arrow.next");
+          const dots = container.querySelectorAll(".carousel-dots .dot");
+          const counter = container.querySelector(".carousel-counter");
+          const total = slides.length;
 
-  <h2>二、每日时间线</h2>
+          if (total <= 1) {
+            if (prevBtn) prevBtn.style.display = "none";
+            if (nextBtn) nextBtn.style.display = "none";
+            if (counter) counter.style.display = "none";
+            const dotsWrap = container.querySelector(".carousel-dots");
+            if (dotsWrap) dotsWrap.style.display = "none";
+            return;
+          }
 
-  <h3>10/1（周四）到达日 · 龙门石窟半天 + 入住</h3>
-  <p class="meta">调整逻辑：龙门站离石窟很近，下车直接去，行李寄存在石窟游客中心，逛完再回应天门，省一趟往返。</p>
-  <div class="timeline">
-    <div class="tl"><div class="time">12:00</div><div class="body"><b>龙门站接人。</b>打车直奔龙门石窟西北服务区（导航“龙门石窟龙门大道上下车点”），约 10–14 分钟、15 元左右。<span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl green"><div class="time">12:30–13:00</div><div class="body"><b>石窟游客中心寄存行李 + 简单午饭。</b><span class="note green">游客中心旁有免费自助寄存柜（6 小时，押金 20 元），取行李时拍照留存更稳妥。</span><span class="note">午饭：景区外羊肉汤 / 牛肉汤 + 烧饼，轻、热、快。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl deep"><div class="time">13:00–15:30</div><div class="body"><b>龙门石窟（半天精品）。</b><span class="badge deep">需提前预约 / 购票</span><span class="note">90 元，8:00–21:00（19:30 停售、20:00 停止入场）。低精力按“半天精品”不是全刷。</span><span class="note">精简路线：西山石窟 → 宾阳三洞 → 万佛洞 → 卢舍那大佛 → 过漫水桥 → 东山礼佛台 → 步行返回游客中心。全程约 2.5 小时。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl"><div class="time">15:30–16:30</div><div class="body"><b>取行李，打车回应天门酒店。</b>约 25–35 分钟、30–40 元。<span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl"><div class="time">16:30–17:30</div><div class="body"><b>入住、休息、放行李。</b>低精力核心，不砍。<span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl"><div class="time">17:30–19:00</div><div class="body"><b>应天门 + 明堂天堂外围轻走（汉服踩点）。</b><span class="note deep">📸 汉服预备：看店、试妆报价、定 10/3 拍摄。问清四件事——朝代造型样例、精修张数、底片全给或挑给、头饰假发配饰是否另收。</span><span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl"><div class="time">19:00–20:00</div><div class="body"><b>晚饭轻。</b>吕记炒鸡（近应天门）酱香微甜、可点小份配饼；或回小街天府吃小吃收尾。20:00 回酒店，不排夜市第二摊。<span class="buffer">缓冲 15 分钟</span></div></div>
-  </div>
+          let currentIndex = 0;
 
-  <h3>10/2（周五）市区人文日 · 轻松</h3>
-  <p class="meta">龙门已提前到 10/1，今天只安排一个市区人文 + 汉服预备，节奏轻松。</p>
-  <div class="timeline">
-    <div class="tl"><div class="time">08:30</div><div class="body"><b>酒店出发，简单早饭。</b>牛肉汤 + 饼丝（马杰山类，若还开）。<span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl deep"><div class="time">09:30–12:00</div><div class="body"><b>分支 A · 洛阳博物馆（低精力首选）。</b><span class="badge deep">需预约</span><span class="note">聂泰路，应天门打车约 20 分钟。日场 9:00–19:00，节假日可能变，出发前查官方；周一闭馆。</span><span class="note">必看：曹魏白玉杯、唐三彩骆驼/马、北魏陶俑、石刻造像。孩子动线：先唐三彩，再石刻，最后文创区。</span><span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl deep"><div class="time">09:30–12:00</div><div class="body"><b>分支 B · 白马寺（与博物馆二选一，不都去）。</b><span class="badge deep">建议提前确认预约 / 购票</span><span class="note">瀍河白马寺镇，7:40–18:30；应天门地铁 1 号线到杨湾再打车最稳，纯打车单程约 30–40 元。</span><span class="note">精品动线：山门 → 天王殿 → 大佛殿 → 大雄殿 → 清凉台 → 泰国/印度/缅甸院 → 齐云塔外景，2 小时撤。</span><span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl"><div class="time">12:00–13:30</div><div class="body"><b>午饭 + 回酒店午休。</b><span class="note">管记水席老店点小碗水席（牡丹燕菜、连汤肉片、焦炸丸子），三大一小按“半席/4 菜”试，别点 24 道全席。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl"><div class="time">15:00–17:00</div><div class="body"><b>午休后自由活动。</b>可选：<span class="note">A · 应天门广场 + 明堂天堂外围补拍空镜。</span><span class="note">B · 九洲池浅逛（Plan B，一般景点，但人少离得近）。</span><span class="note">C · 酒店休息，为 10/3 汉服主拍日养精蓄锐。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl deep"><div class="time">17:00–19:00</div><div class="body"><b>汉服确认 + 应天门黄昏轻拍。</b><span class="badge deep">📸 汉服预备</span><span class="note">若 10/1 没定好妆造，今天务必确认：跟拍档期、套餐内容、底片/精修张数、头饰是否另收。可做“单妆造 + 1 小时应天门黄昏小拍”，19:00 撤。</span><span class="buffer">缓冲 20 分钟，确保 20:00 前回酒店</span></div></div>
-    <div class="tl"><div class="time">19:00–20:00</div><div class="body"><b>晚餐轻收。</b>王素娥麻辣面 / 妞妞烩面（不吃辣提前说）。<span class="buffer">缓冲 15 分钟</span></div></div>
-  </div>
+          function goToSlide(index) {
+            currentIndex = (index + total) % total;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, i) => {
+              dot.classList.toggle("active", i === currentIndex);
+            });
+            if (counter) {
+              counter.textContent = `${currentIndex + 1} / ${total}`;
+            }
+          }
 
-  <div class="hanfu-day">
-    <h3>10/3（周六）📸 汉服主拍日 · 全部围绕出片</h3>
-    <p class="meta">情侣妆造 + 摄影重点，孩子可同拍或只陪拍。汉服集中在这一天，不与其他暴走景点硬凑。</p>
+          if (prevBtn) {
+            prevBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              goToSlide(currentIndex - 1);
+            });
+          }
 
-    <h4>方案 A · 应天门 + 明堂 + 九洲池（宫廷唐风，最省腿）</h4>
-    <div class="timeline">
-      <div class="tl deep"><div class="time">09:30</div><div class="body">应天门周边妆造店到店，情侣全妆全发；孩子可选“小唐装/宋制”或只简单发型。<span class="note">选店范围：应天门南 / 定鼎路 / 民主街 / 天心产业园一带，宫廷唐风强。</span><span class="note deep">套餐建议：单妆造不摄影（租衣）比“妆造+跟拍”便宜；出片就买“妆造 + 1–2 小时跟拍 + 精修 8–15 张 + 全底片”。</span><span class="note warn">避免“199 全包夜景 + 精修 5 张 + 底片另买”。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-      <div class="tl"><div class="time">10:30–12:00</div><div class="body">应天门外部 + 台阶中轴拍：晨光、人少，低能耗。<span class="buffer">缓冲 15 分钟</span></div></div>
-      <div class="tl"><div class="time">12:00–13:00</div><div class="body">酒店换衣休息或就近午饭（小街天府 / 轻面）。<span class="buffer">缓冲 20 分钟</span></div></div>
-      <div class="tl deep"><div class="time">13:30–15:00</div><div class="body">明堂天堂内部拍（买票进）：大殿、穹顶、宫灯，室内不晒不累。<span class="badge deep">需购票</span><span class="buffer">缓冲 15 分钟</span></div></div>
-      <div class="tl"><div class="time">15:30–17:00</div><div class="body">九洲池黄昏：水面 + 唐建倒影，比洛邑人少。<span class="planb">Plan B · 九洲池为一般景点备选；若严格避开，可换应天门外围补拍。</span><span class="buffer">缓冲 15 分钟</span></div></div>
-      <div class="tl"><div class="time">17:00–19:00</div><div class="body">可选补拍应天门蓝调（天暗未全黑），19:30 撤，不进夜市人堆。<span class="buffer">缓冲 20 分钟</span></div></div>
-      <div class="tl"><div class="time">19:30</div><div class="body">回酒店卸妆，20:00 前结束。<span class="buffer">缓冲 15 分钟</span></div></div>
-    </div>
+          if (nextBtn) {
+            nextBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              goToSlide(currentIndex + 1);
+            });
+          }
 
-    <h4>方案 B · 洛邑古城 + 丽景门（氛围强，人多）</h4>
-    <div class="timeline">
-      <div class="tl"><div class="time">14:00</div><div class="body">洛邑 / 丽景门妆造店做妆。<span class="buffer">缓冲 20 分钟</span></div></div>
-      <div class="tl"><div class="time">15:30–17:00</div><div class="body">丽景门城墙外、老街浅拍（不登长城墙）。<span class="planb">Plan B · 丽景门为一般景点备选。</span><span class="buffer">缓冲 15 分钟</span></div></div>
-      <div class="tl warn"><div class="time">17:00–19:30</div><div class="body">洛邑文峰塔、灯笼巷、小桥，拍黄昏到亮灯前。<span class="note warn">国庆 17 点后人多，严格 20 点回，可能超时。</span><span class="buffer">缓冲 20 分钟；19:30 未拍完即撤</span></div></div>
-      <div class="tl"><div class="time">跟拍避坑</div><div class="body">不找门口拉客“40 张底片 + 5 精修 199”；先看原图样片；书面确认：无隐形头饰费、假睫毛含否、改妆一次免费否、逾期还衣费。</div></div>
-    </div>
+          dots.forEach((dot, i) => {
+            dot.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              goToSlide(i);
+            });
+          });
 
-    <h4>方案 C · 亲子不穿汉服，只情侣拍</h4>
-    <p>孩子上午博物馆 / 酒店泳池 / 应天门广场玩，情侣按 A 或 B 拍，不集体硬撑。</p>
-  </div>
+          // 移动端 Touch 左右手势滑动支持
+          let touchStartX = 0;
+          let touchStartY = 0;
+          let touchDistX = 0;
+          let touchDistY = 0;
+          let isSwiping = false;
 
-  <h3>10/4（周日）退房 → 老君山</h3>
-  <p class="meta">上午从应天门退房，转场老君山。建议住景区内 1 晚，为 D5 留足体力。</p>
-  <div class="timeline">
-    <div class="tl"><div class="time">08:00–09:30</div><div class="body"><b>按精力三选一，不叠加。</b><span class="note">A · 应天门晨拍补镜：8:30 空镜 30–40 分钟，回酒店。</span><span class="note">B · 天子驾六博物馆：离应天门近，真车马坑，30–45 分钟，孩子看“周代车队”不累。</span><span class="planb">Plan B · C 古墓博物馆：免费但稍远（老城机场路），低精力不推荐 10/4 上午赶。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl"><div class="time">09:30–10:30</div><div class="body">回酒店整理、退房。<span class="buffer">缓冲 15 分钟</span></div></div>
-    <div class="tl"><div class="time">10:30–11:30</div><div class="body"><b>午饭。</b>牛肉汤 + 饼丝（马杰山类，若还开）；或西工小街小街天府 / 锅贴。<span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl amber"><div class="time">12:00–14:30</div><div class="body"><b>前往老君山。</b><span class="note amber">🚌 洛阳汽车站精品专线：5:30 发车、每小时一班，可在“洛阳汽车站”公众号查询班次并购票。或从龙门站乘洛阳—栾川城际快线。自驾/包车约 2–2.5 小时。</span><span class="buffer">缓冲 30 分钟，国庆路上可能堵</span></div></div>
-    <div class="tl green"><div class="time">14:30–16:00</div><div class="body"><b>抵达老君山，入住景区内民宿。</b><span class="note green">推荐：听溪谷生态民宿（云景索道店）；半山溪语民宿（中灵索道店）；里苏民宿（云景索道店）。景区内住宿需购买当日景区门票。</span><span class="buffer">缓冲 30 分钟，办理入住 + 放行李</span></div></div>
-    <div class="tl green"><div class="time">16:00–18:30</div><div class="body"><b>老君山半日轻游（索道上山，量力而行）。</b><span class="note green">索道：一级索道夏秋季 6:30–21:30，但 <b>16:00 后上行停驶</b>，务必在 16:00 前坐索道上山。建议只坐到中天门，走十里画屏一段，不强行登金顶。</span><span class="note green">金顶亮灯：18:30–19:30（季节可能微调），山顶看亮灯后坐索道下山。</span><span class="buffer">缓冲 20 分钟</span></div></div>
-    <div class="tl green"><div class="time">18:30–20:00</div><div class="body"><b>下山 + 民宿晚饭。</b>景区内民宿多带餐厅，可点家常菜。20:00 前回房休息。<span class="buffer">缓冲 20 分钟</span></div></div>
-  </div>
+          container.addEventListener(
+            "touchstart",
+            (e) => {
+              if (!e.touches || e.touches.length === 0) return;
+              touchStartX = e.touches[0].clientX;
+              touchStartY = e.touches[0].clientY;
+              touchDistX = 0;
+              touchDistY = 0;
+              isSwiping = true;
+            },
+            { passive: true },
+          );
 
-  <div class="extend-day">
-    <h3>10/5（周一）老君山扩展日 · 深度游 + 返程</h3>
-    <p class="meta">如果精力允许，可多留半天深度游；如果体力不够，上午轻松逛，中午前后返洛阳。若多待一天，可在老君山景区内再住 1 晚。</p>
+          container.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isSwiping || !e.touches || e.touches.length === 0) return;
+              touchDistX = e.touches[0].clientX - touchStartX;
+              touchDistY = e.touches[0].clientY - touchStartY;
+            },
+            { passive: true },
+          );
 
-    <h4>方案 A · 半天深度游 + 下午返洛阳</h4>
-    <div class="timeline">
-      <div class="tl green"><div class="time">07:30–08:00</div><div class="body">民宿早饭，退房寄存行李。<span class="buffer">缓冲 15 分钟</span></div></div>
-      <div class="tl green"><div class="time">08:00–12:00</div><div class="body"><b>老君山核心景观。</b><span class="note green">坐一级索道上山 → 中天门 → 十里画屏 → 南天门 → 金顶道观群。全程步行约 3–4 小时，三大一小量力而行。</span><span class="note">门票 100 元（线上提前购 90 元），需在“老君山风景名胜区”微信公众号或携程/美团/抖音提前实名预约购票。</span><span class="buffer">缓冲 30 分钟</span></div></div>
-      <div class="tl green"><div class="time">12:00–13:00</div><div class="body">民宿取行李，午饭。<span class="buffer">缓冲 20 分钟</span></div></div>
-      <div class="tl amber"><div class="time">13:00–15:30</div><div class="body"><b>返洛阳。</b><span class="note amber">🚌 乘老君山→洛阳直通车/城际快线，约 2–2.5 小时回到洛阳市区。</span><span class="buffer">缓冲 30 分钟</span></div></div>
-      <div class="tl"><div class="time">15:30–17:00</div><div class="body">回到洛阳市区，休整或补买伴手礼。<span class="buffer">缓冲 20 分钟</span></div></div>
-      <div class="tl deep"><div class="time">17:00 之后</div><div class="body"><b>返武汉高铁。</b><span class="note deep">洛阳龙门站 → 武汉，约 3.5 小时。建议买 15:00 之后的班次，给返程留足缓冲。</span></div></div>
-    </div>
+          container.addEventListener(
+            "touchend",
+            () => {
+              if (!isSwiping) return;
+              isSwiping = false;
+              // 水平滑动距离超过 35px 且横向滑动幅度大于纵向滑动幅度时触发切图
+              if (
+                Math.abs(touchDistX) > 35 &&
+                Math.abs(touchDistX) > Math.abs(touchDistY)
+              ) {
+                if (touchDistX > 0) {
+                  goToSlide(currentIndex - 1); // 向右滑，看上一张
+                } else {
+                  goToSlide(currentIndex + 1); // 向左滑，看下一张
+                }
+              }
+            },
+            { passive: true },
+          );
+        });
+      }
 
-    <h4>方案 B · 多待一天（住老君山第 2 晚）</h4>
-    <div class="timeline">
-      <div class="tl green"><div class="time">10/5 全天</div><div class="body"><b>老君山深度游。</b>可走追梦谷、寨沟，门票 48 小时内有效，三大区域通用。<span class="buffer">节奏自控，不赶时间</span></div></div>
-      <div class="tl green"><div class="time">10/5 晚</div><div class="body">继续住景区内民宿，看金顶夜景亮灯。<span class="buffer">20:00 前回房</span></div></div>
-      <div class="tl amber"><div class="time">10/6 上午</div><div class="body"><b>返洛阳 → 高铁回武汉。</b><span class="note amber">🚌 老君山→洛阳直通车/城际快线，约 2–2.5 小时。</span><span class="note deep">洛阳龙门站 → 武汉，按 13:00 后买票更稳。</span><span class="buffer">缓冲 30 分钟</span></div></div>
-    </div>
+      // ===== 图片预览 (Fancybox 5 + 优雅降级) =====
+      function initLightbox() {
+        if (typeof Fancybox !== "undefined") {
+          Fancybox.bind("[data-fancybox]", {
+            Hash: false,
+            Thumbs: {
+              autoStart: false,
+            },
+            Toolbar: {
+              display: {
+                left: ["infobar"],
+                middle: [],
+                right: [
+                  "slideshow",
+                  "zoomIn",
+                  "zoomOut",
+                  "fullscreen",
+                  "close",
+                ],
+              },
+            },
+            Images: {
+              zoom: true,
+            },
+          });
+        } else {
+          // 离线环境/无网络时的原生 Lightbox 降级方案
+          const links = document.querySelectorAll("a[data-fancybox]");
+          links.forEach((link) => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const href = link.getAttribute("href");
+              const caption = link.getAttribute("data-caption") || "";
+              openNativeModal(href, caption);
+            });
+          });
+        }
+      }
 
-    <h4>方案 C · 老君山只安排 1 天（当天往返）</h4>
-    <p>若不想多待，可 10/4 住洛阳、10/5 一早乘 5:30 直通车当天往返。但低精力人群不推荐当天往返，索道 16:00 上行停驶、回程可能近 20:00，体力消耗大。</p>
-  </div>
+      function openNativeModal(src, caption) {
+        let modal = document.getElementById("native-lightbox-modal");
+        if (!modal) {
+          modal = document.createElement("div");
+          modal.id = "native-lightbox-modal";
+          modal.style.cssText =
+            "position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;cursor:zoom-out;backdrop-filter:blur(6px);";
+          modal.innerHTML = `
+        <img id="native-lightbox-img" style="max-width:92%;max-height:82vh;object-fit:contain;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,0.5);transition:transform .2s;" src="" alt="" />
+        <div id="native-lightbox-caption" style="color:#e0dedb;margin-top:14px;font-size:13px;text-align:center;letter-spacing:.3px;"></div>
+        <button style="position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:30px;cursor:pointer;line-height:1;">&times;</button>
+      `;
+          modal.addEventListener("click", () => (modal.style.display = "none"));
+          document.body.appendChild(modal);
+        }
+        const img = modal.querySelector("#native-lightbox-img");
+        const cap = modal.querySelector("#native-lightbox-caption");
+        img.src = src;
+        cap.textContent = caption;
+        modal.style.display = "flex";
+      }
 
-  <hr>
+      // ===== 方案一：自动探测多格式图片加载器 =====
+      // 无论图片是 .jpg, .png, .jpeg 还是 .webp，自动逐个测试，哪个存在就加载哪个，绝不报错
+      const CANDIDATE_EXTS = [
+        ".jpg",
+        ".png",
+        ".jpeg",
+        ".webp",
+        ".JPG",
+        ".PNG",
+        ".JPEG",
+      ];
 
-  <!-- ===== 景点图标展示 ===== -->
-  <h2>三、景点图标展示</h2>
-  <p class="meta">用简笔图标代表各景点特征，方便快速回忆和定位。全部为内联 SVG，不依赖任何外部图片。</p>
+      function resolveAutoImages() {
+        const autoLinks = document.querySelectorAll("a[data-img-base]");
+        const promises = Array.from(autoLinks).map((link) => {
+          const base = link.getAttribute("data-img-base");
+          const img = link.querySelector("img");
+          return new Promise((resolve) => {
+            function tryExt(index) {
+              if (index >= CANDIDATE_EXTS.length) {
+                resolve();
+                return;
+              }
+              const testSrc = base + CANDIDATE_EXTS[index];
+              const tester = new Image();
+              tester.onload = () => {
+                link.href = testSrc;
+                if (img) {
+                  img.src = testSrc;
+                }
+                const slide = link.closest(".carousel-slide");
+                if (slide) {
+                  slide.style.setProperty("--slide-bg", `url("${testSrc}")`);
+                }
+                resolve();
+              };
+              tester.onerror = () => {
+                tryExt(index + 1);
+              };
+              tester.src = testSrc;
+            }
+            tryExt(0);
+          });
+        });
+        return Promise.all(promises);
+      }
 
-  <div class="gallery-grid">
-
-    <!-- 龙门石窟 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 48 V32 a20 20 0 0 1 40 0 V48"/>
-          <circle cx="32" cy="30" r="6"/>
-          <path d="M22 48 v-6 a10 10 0 0 1 20 0 v6"/>
-          <path d="M8 48 h48"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag hard">🔥 硬核</span>
-        <span class="g-name">龙门石窟 · 卢舍那大佛</span>
-        <div class="g-desc">西山石窟核心，奉先寺主尊，唐代石刻艺术巅峰。D1 下午半天精品路线。</div>
-      </div>
-    </div>
-
-    <!-- 应天门 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22 L32 10 L52 22"/>
-          <rect x="20" y="22" width="24" height="14"/>
-          <path d="M10 40 L32 34 L54 40"/>
-          <rect x="14" y="40" width="36" height="12"/>
-          <path d="M28 52 v-8 h8 v8"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 还不错</span>
-        <span class="g-name">应天门 · 城楼</span>
-        <div class="g-desc">隋唐洛阳城正门，灯光秀所在地。D1/D2/D3 多次经过，汉服拍摄核心机位。</div>
-      </div>
-    </div>
-
-    <!-- 洛阳博物馆 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 22 h36"/>
-          <path d="M18 22 v16 a14 14 0 0 0 28 0 V22"/>
-          <path d="M22 22 v-6 M42 22 v-6"/>
-          <path d="M24 50 v6 M32 50 v6 M40 50 v6"/>
-          <path d="M20 30 h24"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 还不错</span>
-        <span class="g-name">洛阳博物馆 · 唐三彩</span>
-        <div class="g-desc">曹魏白玉杯、唐三彩骆驼/马、北魏陶俑。D2 分支 A 低精力首选。</div>
-      </div>
-    </div>
-
-    <!-- 白马寺 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M32 8 v6"/>
-          <path d="M22 20 L32 14 L42 20"/>
-          <rect x="24" y="20" width="16" height="8"/>
-          <path d="M18 34 L32 28 L46 34"/>
-          <rect x="22" y="34" width="20" height="8"/>
-          <rect x="20" y="42" width="24" height="12"/>
-          <path d="M16 54 h32"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 还不错</span>
-        <span class="g-name">白马寺 · 红墙</span>
-        <div class="g-desc">中国第一古刹，红墙异域院适合汉服浅拍。D2 分支 B，与博物馆二选一。</div>
-      </div>
-    </div>
-
-    <!-- 老君山 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 52 L24 24 L32 34 L42 16 L56 52 Z"/>
-          <path d="M14 42 a4 4 0 0 1 8 0"/>
-          <path d="M32 34 L32 52"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">⭐ 很不错</span>
-        <span class="g-name">老君山 · 金顶</span>
-        <div class="g-desc">海拔 2000 余米，金顶道观群、云海、亮灯。D4–D5 扩展日，住景区内 1 晚。</div>
-      </div>
-    </div>
-
-    <!-- 明堂天堂 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 22 a10 10 0 0 1 20 0"/>
-          <path d="M22 22 h20"/>
-          <rect x="20" y="22" width="24" height="16"/>
-          <path d="M14 38 h36"/>
-          <rect x="16" y="38" width="32" height="14"/>
-          <path d="M28 52 v-8 h8 v8"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 还不错</span>
-        <span class="g-name">明堂天堂 · 内部</span>
-        <div class="g-desc">大殿、穹顶、宫灯，室内不晒不累。D3 汉服主拍日室内拍摄点。</div>
-      </div>
-    </div>
-
-    <!-- 洛邑古城 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 30 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6"/>
-          <rect x="12" y="30" width="40" height="22"/>
-          <path d="M26 52 v-10 a6 6 0 0 1 12 0 v10"/>
-          <circle cx="20" cy="20" r="4"/>
-          <path d="M20 16 v-2 M20 24 v2"/>
-          <circle cx="44" cy="20" r="4"/>
-          <path d="M44 16 v-2 M44 24 v2"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 还不错</span>
-        <span class="g-name">洛邑古城 · 夜景</span>
-        <div class="g-desc">文峰塔、灯笼巷、小桥，汉服夜景热门地。D3 方案 B 备选，注意 17 点后人挤人。</div>
-      </div>
-    </div>
-
-    <!-- 九洲池 -->
-    <div class="gallery-item">
-      <div class="g-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 26 L32 14 L48 26"/>
-          <path d="M20 26 h24"/>
-          <path d="M24 26 v14 M32 26 v14 M40 26 v14"/>
-          <path d="M10 46 q6 -3 12 0 t12 0 t12 0 t8 0"/>
-          <path d="M14 52 q6 -3 12 0 t12 0 t12 0"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">⚠️ 一般 · Plan B</span>
-        <span class="g-name">九洲池 · 园林</span>
-        <div class="g-desc">水面 + 唐建倒影，人比洛邑少。D1/D3 作 Plan B 备选，适合低精力黄昏拍摄。</div>
-      </div>
-    </div>
-
-  </div>
-
-  <hr>
-
-  <!-- ===== 美食图标展示 ===== -->
-  <h2>四、美食图标展示</h2>
-  <p class="meta">洛阳汤馆、水席、小吃各有代表，用简笔图标辅助识别，方便点餐时快速定位。</p>
-
-  <div class="gallery-grid">
-
-    <!-- 马杰山牛肉汤 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M26 14 q-2 -4 0 -8 M32 14 q-2 -4 0 -8 M38 14 q-2 -4 0 -8"/>
-          <path d="M12 24 h40"/>
-          <path d="M14 24 L18 48 a6 6 0 0 0 6 5 h16 a6 6 0 0 0 6 -5 L50 24"/>
-          <path d="M26 53 h12"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">✅ 红榜</span>
-        <span class="g-name">马杰山牛肉汤</span>
-        <div class="g-desc">洛阳牛肉汤头牌，上午汤最全。配饼丝、丸子，三大一小可点小碗拼饼。</div>
-      </div>
-    </div>
-
-    <!-- 管记水席 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 30 h24"/>
-          <path d="M22 30 L24 46 a4 4 0 0 0 4 4 h8 a4 4 0 0 0 4 -4 L42 30"/>
-          <path d="M8 30 h10"/>
-          <path d="M9 30 L11 42 a3 3 0 0 0 3 3 h2"/>
-          <path d="M46 30 h10"/>
-          <path d="M55 30 L53 42 a3 3 0 0 0 -3 3 h-2"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">✅ 红榜</span>
-        <span class="g-name">管记水席 · 小碗水席</span>
-        <div class="g-desc">牡丹燕菜、连汤肉片、焦炸丸子。三大一小按“半席/4 菜”试，别点 24 道全席。</div>
-      </div>
-    </div>
-
-    <!-- 小街天府 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M40 10 L56 22 M44 8 L58 20"/>
-          <path d="M10 28 h36"/>
-          <path d="M12 28 L16 48 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 28"/>
-          <path d="M22 28 q2 -6 6 -4 q2 -6 6 -2"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">✅ 红榜</span>
-        <span class="g-name">小街天府 · 小吃集合</span>
-        <div class="g-desc">担担面、糖醋小土豆、米凉糕。西工小街，三大一小分档点不浪费。</div>
-      </div>
-    </div>
-
-    <!-- 吕记炒鸡 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 30 h44"/>
-          <path d="M14 30 L20 48 a8 8 0 0 0 8 6 h8 a8 8 0 0 0 8 -6 L50 30"/>
-          <path d="M4 36 h6 M54 36 h6"/>
-          <path d="M32 22 q-4 -4 0 -8 q4 -4 0 -8 M24 24 q-3 -3 0 -6 M40 24 q3 -3 0 -6"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">✅ 红榜</span>
-        <span class="g-name">吕记炒鸡</span>
-        <div class="g-desc">酱香微甜、可点小份、配饼。近应天门，D1 晚饭轻量选择，不重辣。</div>
-      </div>
-    </div>
-
-    <!-- 妞妞烩面 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M46 8 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0"/>
-          <path d="M50 12 L44 28"/>
-          <path d="M10 26 h36"/>
-          <path d="M12 26 L16 46 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 26"/>
-          <path d="M20 26 q3 -4 6 0 q3 -4 6 0"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">✅ 红榜</span>
-        <span class="g-name">妞妞烩面</span>
-        <div class="g-desc">洛阳清真烩面代表，滋补烩面、牛肉烩面。不吃辣提前说，D2 晚饭备选。</div>
-      </div>
-    </div>
-
-    <!-- 羊肉汤 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 12 q-2 -3 0 -6 M32 12 q-2 -3 0 -6 M40 12 q-2 -3 0 -6"/>
-          <path d="M12 24 h40"/>
-          <path d="M14 24 L18 46 a6 6 0 0 0 6 5 h16 a6 6 0 0 0 6 -5 L50 24"/>
-          <path d="M26 51 h12"/>
-          <path d="M28 16 q-4 -4 -8 -2 M36 16 q4 -4 8 -2"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag good">✅ 红榜</span>
-        <span class="g-name">洛阳羊肉汤 / 牛肉汤</span>
-        <div class="g-desc">轻、热、快，配烧饼。D1 石窟外午饭首选，不耽误逛石窟时间。</div>
-      </div>
-    </div>
-
-    <!-- 不翻汤 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M48 10 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/>
-          <path d="M51 13 L46 26"/>
-          <path d="M10 28 h34"/>
-          <path d="M12 28 L16 48 a6 6 0 0 0 6 5 h12 a6 6 0 0 0 6 -5 L44 28"/>
-          <path d="M18 34 q4 -2 8 0 M30 34 q4 -2 8 0"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 小吃</span>
-        <span class="g-name">洛阳不翻汤</span>
-        <div class="g-desc">酸辣利口、油而不腻，百年历史。一人小碗尝味，部分老店只收现金。</div>
-      </div>
-    </div>
-
-    <!-- 小街锅贴 -->
-    <div class="gallery-item">
-      <div class="g-icon food">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 42 q10 -12 22 0 q-10 6 -22 0 Z"/>
-          <path d="M12 40 v-4 M18 38 v-5 M24 38 v-5 M28 40 v-4"/>
-          <path d="M34 42 q10 -12 22 0 q-10 6 -22 0 Z"/>
-          <path d="M38 40 v-4 M44 38 v-5 M50 38 v-5 M54 40 v-4"/>
-        </svg>
-      </div>
-      <div class="g-caption">
-        <span class="gallery-tag ok">✅ 小吃</span>
-        <span class="g-name">小街锅贴</span>
-        <div class="g-desc">河南省非物质文化遗产，西工小街代表小吃。锅贴 + 牛肉汤，轻量收尾。</div>
-      </div>
-    </div>
-
-  </div>
-
-  <hr>
-
-  <h2>五、汉服摄影筛选表</h2>
-  <table>
-    <thead><tr><th style="width:22%">地点</th><th>适合风格 / 出片点</th><th style="width:30%">低精力提示</th></tr></thead>
-    <tbody>
-      <tr><td>应天门 / 明堂 / 九洲池</td><td>唐制大袖、齐胸、圆领袍、宫廷步摇；跟拍价高，出片大气</td><td>人少时段 8:30–10:30、16:30–19:30</td></tr>
-      <tr><td>洛邑古城</td><td>宋制褙子、明制马面、唐制齐胸皆宜；文峰塔、灯笼、小桥夜景强</td><td>人最多，17 点后拥挤</td></tr>
-      <tr><td>丽景门 <span class="badge">Plan B</span></td><td>城墙 + 老街，偏市井唐风</td><td>登城累，低精力只门口</td></tr>
-      <tr><td>白马寺</td><td>汉服可拍红墙异域院</td><td>10/2 若去只浅拍，不专门穿汉服跑一天</td></tr>
-    </tbody>
-  </table>
-  <div class="card red-light">
-    <b>报价红线：</b>问清代数 / 精修张数 / 底片全交 / 头饰假发配饰 / 改妆次数 / 还衣时间 / 雨天改期。<br>
-    <span class="note warn">景区门口“99 全包夜景”先要看近 30 天原片，不只看精修九宫格。</span>
-  </div>
-
-  <h2>六、美食红黑榜</h2>
-  <div class="card plain">
-    <h4>✅ 红榜候选</h4>
-    <ul>
-      <li><b>汤类：</b>马杰山牛肉汤、匡家驴肉汤、南关小碗牛肉汤（上午更全，可点小碗拼饼）。</li>
-      <li><b>水席：</b>管记老店、真不同（偏宴请价高）；只点牡丹燕菜、连汤肉片、焦炸丸子、小碗酸奶 / 不翻汤，不全席。</li>
-      <li><b>小吃：</b>小街天府、西工小街锅贴、老李家炒凉粉、高/张记不翻汤。</li>
-      <li><b>正餐：</b>吕记炒鸡、王嫂私厨（家常分量大）、马坡二旦烧烤（本程不排）、豫和记涮牛肚。</li>
-    </ul>
-  </div>
-  <div class="card red-light">
-    <h4>❌ 避坑原则</h4>
-    <ul>
-      <li>应天门 / 洛邑 / 龙门出口“网红套餐”、低价全席、芝士榴莲、重辣不标注、不告知分量的水席。</li>
-      <li>99 元水席套餐多用冷冻食材。</li>
-      <li>洛阳菜分量极大，三大一小点 3–4 个菜足矣。</li>
-      <li>部分老店（如不翻汤）只收现金，备好零钱。</li>
-      <li>洛阳辣椒后劲足，不能吃辣务必提前说明“免辣”。</li>
-    </ul>
-  </div>
-
-  <h2>七、低精力裁剪规则</h2>
-  <ul>
-    <li><b>老君山：</b>已扩展为 D5，住景区内 1 晚。<span class="badge warn">晚 8 点风险</span>索道 16:00 上行停驶，务必提前上山；若当天往返，回程可能近 20:00。</li>
-    <li><b>龙门 + 白马同天 → 剔除，只留其一；</b>本行程龙门已在 10/1，10/2 只选博物馆或白马寺之一。</li>
-    <li><b>洛邑夜场 + 应天门夜场同天 → 剔除，</b>只选一个且 20 点前离。</li>
-    <li><b>孩子若小：</b>汉服只情侣，孩子租小装不跟拍；博物馆只看唐三彩 + 石刻两厅。</li>
-  </ul>
-
-  <h2>八、交通方式精细对比（三大一小）</h2>
-  <table>
-    <thead><tr><th>场景</th><th>推荐方式</th><th>优势</th><th>劣势</th><th>预估费用 / 次</th></tr></thead>
-    <tbody>
-      <tr><td>龙门站–龙门石窟</td><td>打车</td><td>约 10–14 分钟，极近</td><td>国庆可能排队打车</td><td>约 15 元</td></tr>
-      <tr><td>龙门石窟–应天门</td><td>打车</td><td>直达，约 25–35 分钟</td><td>高峰期拥堵</td><td>约 30–40 元</td></tr>
-      <tr><td>应天门–白马寺</td><td>打车 <span class="badge amber">公交备选</span></td><td>打车直达省心</td><td>约 10km；公交慢且不省力</td><td>打车约 30 元</td></tr>
-      <tr><td>市区–老君山</td><td><span class="badge amber">旅游直通车</span></td><td>直达，不用操心路线</td><td>需定点乘车，约 2–2.5 小时</td><td>约 30–40 元 / 人</td></tr>
-      <tr><td>老君山–洛阳龙门站</td><td><span class="badge amber">直通车 + 打车</span></td><td>返程方便</td><td>全程约 2.5–3 小时</td><td>约 50 元 / 人</td></tr>
-    </tbody>
-  </table>
-
-  <hr>
-
-  <h2>九、景点夯到拉排名（参考图整理）</h2>
-  <p class="meta">按“硬核 / 很不错 / 还不错 / 一般”四档，转为“夯 → 拉”排名，方便快速筛选。</p>
-  <table class="rank-table">
-    <thead><tr><th style="width:110px;">排名</th><th>景点</th></tr></thead>
-    <tbody>
-      <tr><td><span class="rank-tag rank-hard">🔥 夯 / 硬核</span></td><td><span class="rank-spot">龙门石窟</span></td></tr>
-      <tr><td><span class="rank-tag rank-good">⭐ 很不错</span></td><td><span class="rank-spot">老君山</span><span class="rank-spot">牡丹节（季节性）</span></td></tr>
-      <tr><td><span class="rank-tag rank-ok">✅ 还不错</span></td><td>
-        <span class="rank-spot">白云山</span><span class="rank-spot">白马寺</span><span class="rank-spot">洛邑古城</span><span class="rank-spot">龙潭大峡谷</span><span class="rank-spot">天子驾六博物馆</span><span class="rank-spot">洛阳博物馆</span><span class="rank-spot">古墓博物馆</span><span class="rank-spot">明堂天堂</span><span class="rank-spot">应天门</span><span class="rank-spot">鸡冠洞</span><span class="rank-spot">重渡沟</span><span class="rank-spot">黄河小浪底水利枢纽</span>
-      </td></tr>
-      <tr><td><span class="rank-tag rank-meh">⚠️ 一般 / 拉</span></td><td>
-        <span class="rank-spot">大运河博物馆</span><span class="rank-spot">丽景门</span><span class="rank-spot">九洲池</span><span class="rank-spot">王府竹海</span><span class="rank-spot">养子沟</span><span class="rank-spot">木札岭</span><span class="rank-spot">天池山</span><span class="rank-spot">花果山</span>
-      </td></tr>
-    </tbody>
-  </table>
-  <div class="card plain">
-    <h4>使用建议</h4>
-    <ul>
-      <li><b>🔥 硬核：</b>龙门石窟必去，D1 已安排。</li>
-      <li><b>⭐ 很不错：</b>老君山已扩展为 D5，牡丹节若在花期可额外关注。</li>
-      <li><b>✅ 还不错：</b>行程中已按低精力 + 顺路原则选用白马寺、洛邑古城、洛阳博物馆、明堂天堂、应天门、天子驾六等。</li>
-      <li><b>⚠️ 一般：</b>丽景门、九洲池仅作 Plan B 备选；其余如大运河博物馆、王府竹海、养子沟、木札岭、天池山、花果山，本程不排。</li>
-    </ul>
-  </div>
-
-  <footer>
-    打印建议：浏览器打开后 Ctrl+P → 另存为 PDF；A4、边距默认；若想保留浅底色，勾选“背景图形”。<br>
-    图标说明：景点与美食图标均为内联 SVG 简笔图形，纯代码、自包含、不依赖任何外部图片或网络，打开即见、打印即出。<br>
-    核心原则：<b>D1 下车直接逛龙门石窟；D3 汉服单独主拍；D4–D5 老君山扩展，住景区内 1 晚；一般景点放 Plan B。</b>
-  </footer>
-
-</div>
-</body>
+      // 页面加载就绪后初始化
+      document.addEventListener("DOMContentLoaded", () => {
+        initCarousels();
+        resolveAutoImages().then(() => {
+          initLightbox();
+        });
+      });
+    </script>
+  </body>
 </html>
